@@ -1,2 +1,2 @@
 # DamAss
-LP25 project for UTBM
+This is the Dame game for LP25 course at UTBM
