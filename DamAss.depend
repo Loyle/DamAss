@@ -346,8 +346,9 @@
 	"begin_code.h"
 	"close_code.h"
 
-1557945672 source:d:\cours\lp25\damass\main.c
+1558385040 source:d:\cours\lp25\damass\main.c
 	<SDL2/SDL.h>
 	<stdio.h>
 	<stdlib.h>
+	<math.h>
 

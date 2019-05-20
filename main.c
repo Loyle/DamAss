@@ -4,13 +4,12 @@
 #include <stdlib.h>
 #include <math.h>
 
-/*define X 250
-#define Y 250*/
 void pause(SDL_Window*,SDL_Renderer*);
 void drawSprite(SDL_Window*,SDL_Renderer*,int,int,int);
 void drawResetButton(SDL_Window*,SDL_Renderer*);
 void drawChessboard(SDL_Window*,SDL_Renderer*);
 void positionOnChessboard(SDL_Window*,SDL_Renderer*,int,int);
+void checkDamePostion(int[][8],int,int);
 
 
 int main(int argc, char** argv)
@@ -27,8 +26,11 @@ int main(int argc, char** argv)
                                800,
                                SDL_WINDOW_SHOWN|SDL_SWSURFACE); // SDL_WINDOW_RESIZABLE pour pouvoir changer taille window
     SDL_Renderer *renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
+    int board[8][8]={0};
+
     drawChessboard(pWindow,renderer);
     drawResetButton(pWindow,renderer);
+    checkDamePostion(board,4,4);
     pause(pWindow,renderer);
 
     SDL_DestroyRenderer(renderer);
@@ -151,7 +153,6 @@ void drawResetButton(SDL_Window* pWindow, SDL_Renderer* renderer){
     if (reset)
         {
             SDL_Texture* sReset = SDL_CreateTextureFromSurface(renderer,reset);
-            printf("DRAW reset\n");
             SDL_Rect dest = {810,650,100,100};
             SDL_RenderCopy(renderer,sReset,NULL,&dest);
             SDL_RenderPresent(renderer);
@@ -201,40 +202,40 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
      switch (x)
     {
     /* Ligne 1 */
-    case 50 ... 99 :
+    case 80 ... 159 :
         switch(y)
         {
         /* Colonne A*/
-        case 50 ... 99 :
-            drawSprite(pWindow,renderer,50,50,0);
+        case 80 ... 159 :
+            drawSprite(pWindow,renderer,80,80,0);
             printf("Dans A1\n");
             break;
-        case 100 ... 149 :
-            drawSprite(pWindow,renderer,50,100,1);
+        case 160 ... 239 :
+            drawSprite(pWindow,renderer,80,160,1);
             printf("Dans A2\n");
             break;
-        case 150 ... 199 :
-            drawSprite(pWindow,renderer,50,150,0);
+        case 240 ... 319 :
+            drawSprite(pWindow,renderer,80,240,0);
             printf("Dans A3\n");
             break;
-        case 200 ... 249 :
-            drawSprite(pWindow,renderer,50,200,1);
+        case 320 ... 399 :
+            drawSprite(pWindow,renderer,80,320,1);
             printf("Dans A4\n");
             break;
-        case 250 ... 299 :
-            drawSprite(pWindow,renderer,50,250,0);
+        case 400 ... 479 :
+            drawSprite(pWindow,renderer,80,400,0);
             printf("Dans A5\n");
             break;
-        case 300 ... 349 :
-            drawSprite(pWindow,renderer,50,300,1);
+        case 480 ... 559 :
+            drawSprite(pWindow,renderer,80,480,1);
             printf("Dans A6\n");
             break;
-        case 350 ... 399 :
-            drawSprite(pWindow,renderer,50,350,0);
+        case 560 ... 639 :
+            drawSprite(pWindow,renderer,80,560,0);
             printf("Dans A7\n");
             break;
-        case 400 ... 450 :
-            drawSprite(pWindow,renderer,50,400,1);
+        case 640 ... 720 :
+            drawSprite(pWindow,renderer,80,640,1);
             printf("Dans A8\n");
             break;
         default :
@@ -243,40 +244,40 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
         }
         break;
     /* ligne 2*/
-    case 100 ... 149 :
+    case 160 ... 239 :
         switch(y)
         {
         /* Colonne B*/
-        case 50 ... 99 :
-            drawSprite(pWindow,renderer,100,50,1);
+        case 80 ... 159 :
+            drawSprite(pWindow,renderer,160,80,1);
             printf("Dans B1\n");
             break;
-        case 100 ... 149 :
-            drawSprite(pWindow,renderer,100,100,0);
+        case 160 ... 239 :
+            drawSprite(pWindow,renderer,160,160,0);
             printf("Dans B2\n");
             break;
-        case 150 ... 199 :
-            drawSprite(pWindow,renderer,100,150,1);
+        case 240 ... 319 :
+            drawSprite(pWindow,renderer,160,240,1);
             printf("Dans B3\n");
             break;
-        case 200 ... 249 :
-            drawSprite(pWindow,renderer,100,200,0);
+        case 320 ... 399 :
+            drawSprite(pWindow,renderer,160,320,0);
             printf("Dans B4\n");
             break;
-        case 250 ... 299 :
-            drawSprite(pWindow,renderer,100,250,1);
+        case 400 ... 479 :
+            drawSprite(pWindow,renderer,160,400,1);
             printf("Dans B5\n");
             break;
-        case 300 ... 349 :
-            drawSprite(pWindow,renderer,100,300,0);
+        case 480 ... 559 :
+            drawSprite(pWindow,renderer,160,480,0);
             printf("Dans B6\n");
             break;
-        case 350 ... 399 :
-            drawSprite(pWindow,renderer,100,350,1);
+        case 560 ... 639 :
+            drawSprite(pWindow,renderer,160,560,1);
             printf("Dans B7\n");
             break;
-        case 400 ... 450 :
-            drawSprite(pWindow,renderer,100,400,0);
+        case 640 ... 720 :
+            drawSprite(pWindow,renderer,160,640,0);
             printf("Dans B8\n");
             break;
         default :
@@ -285,40 +286,40 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
         }
         break;
     /* ligne 3*/
-    case 150 ... 199 :
+    case 240 ... 319 :
         switch(y)
         {
-        /* Colonne C*/
-        case 50 ... 99 :
-            drawSprite(pWindow,renderer,150,50,0);
+        /* Colonne*/
+        case 80 ... 159 :
+            drawSprite(pWindow,renderer,240,80,0);
             printf("Dans C1\n");
             break;
-        case 100 ... 149 :
-            drawSprite(pWindow,renderer,150,100,1);
+        case 160 ... 239 :
+            drawSprite(pWindow,renderer,240,160,1);
             printf("Dans C2\n");
             break;
-        case 150 ... 199 :
-            drawSprite(pWindow,renderer,150,150,0);
+        case 240 ... 319 :
+            drawSprite(pWindow,renderer,240,240,0);
             printf("Dans C3\n");
             break;
-        case 200 ... 249 :
-            drawSprite(pWindow,renderer,150,200,1);
+        case 320 ... 399 :
+            drawSprite(pWindow,renderer,240,320,1);
             printf("Dans C4\n");
             break;
-        case 250 ... 299 :
-            drawSprite(pWindow,renderer,150,250,0);
+        case 400 ... 479 :
+            drawSprite(pWindow,renderer,240,400,0);
             printf("Dans C5\n");
             break;
-        case 300 ... 349 :
-            drawSprite(pWindow,renderer,150,300,1);
+        case 480 ... 559 :
+            drawSprite(pWindow,renderer,240,480,1);
             printf("Dans C6\n");
             break;
-        case 350 ... 399 :
-            drawSprite(pWindow,renderer,150,350,0);
+        case 560 ... 639 :
+            drawSprite(pWindow,renderer,240,560,0);
             printf("Dans C7\n");
             break;
-        case 400 ... 450 :
-            drawSprite(pWindow,renderer,150,400,1);
+        case 640 ... 720 :
+            drawSprite(pWindow,renderer,240,640,1);
             printf("Dans C8\n");
             break;
         default :
@@ -327,40 +328,40 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
         }
         break;
     /* ligne 4*/
-    case 200 ... 249 :
+    case 320 ... 399 :
         switch(y)
         {
         /* Colonne D*/
-        case 50 ... 99 :
-            drawSprite(pWindow,renderer,200,50,1);
+        case 80 ... 159 :
+            drawSprite(pWindow,renderer,320,80,1);
             printf("Dans D1\n");
             break;
-        case 100 ... 149 :
-            drawSprite(pWindow,renderer,200,100,0);
+        case 160 ... 239 :
+            drawSprite(pWindow,renderer,320,160,0);
             printf("Dans D2\n");
             break;
-        case 150 ... 199 :
-            drawSprite(pWindow,renderer,200,150,1);
+        case 240 ... 319 :
+            drawSprite(pWindow,renderer,320,240,1);
             printf("Dans D3\n");
             break;
-        case 200 ... 249 :
-            drawSprite(pWindow,renderer,200,200,0);
+        case 320 ... 399 :
+            drawSprite(pWindow,renderer,320,320,0);
             printf("Dans D4\n");
             break;
-        case 250 ... 299 :
-            drawSprite(pWindow,renderer,200,250,1);
+        case 400 ... 479 :
+            drawSprite(pWindow,renderer,320,400,1);
             printf("Dans D5\n");
             break;
-        case 300 ... 349 :
-            drawSprite(pWindow,renderer,200,300,0);
+        case 480 ... 559 :
+            drawSprite(pWindow,renderer,320,480,0);
             printf("Dans D6\n");
             break;
-        case 350 ... 399 :
-            drawSprite(pWindow,renderer,200,350,1);
+        case 560 ... 639 :
+            drawSprite(pWindow,renderer,320,560,1);
             printf("Dans D7\n");
             break;
-        case 400 ... 450 :
-            drawSprite(pWindow,renderer,200,400,0);
+        case 640 ... 720 :
+            drawSprite(pWindow,renderer,320,640,0);
             printf("Dans D8\n");
             break;
         default :
@@ -369,40 +370,40 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
         }
         break;
     /* ligne 5*/
-    case 250 ... 299 :
+    case 400 ... 479 :
         switch(y)
         {
         /* Colonne E*/
-        case 50 ... 99 :
-            drawSprite(pWindow,renderer,250,50,0);
+        case 80 ... 159 :
+            drawSprite(pWindow,renderer,400,80,0);
             printf("Dans E1\n");
             break;
-        case 100 ... 149 :
-            drawSprite(pWindow,renderer,250,100,1);
+        case 160 ... 239 :
+            drawSprite(pWindow,renderer,400,160,1);
             printf("Dans E2\n");
             break;
-        case 150 ... 199 :
-            drawSprite(pWindow,renderer,250,150,0);
+        case 240 ... 319 :
+            drawSprite(pWindow,renderer,400,240,0);
             printf("Dans E3\n");
             break;
-        case 200 ... 249 :
-            drawSprite(pWindow,renderer,250,200,1);
+        case 320 ... 399 :
+            drawSprite(pWindow,renderer,400,320,1);
             printf("Dans E4\n");
             break;
-        case 250 ... 299 :
-            drawSprite(pWindow,renderer,250,250,0);
+        case 400 ... 479 :
+            drawSprite(pWindow,renderer,400,400,0);
             printf("Dans E5\n");
             break;
-        case 300 ... 349 :
-            drawSprite(pWindow,renderer,250,300,1);
+        case 480 ... 559 :
+            drawSprite(pWindow,renderer,400,480,1);
             printf("Dans E6\n");
             break;
-        case 350 ... 399 :
-            drawSprite(pWindow,renderer,250,350,0);
+        case 560 ... 639 :
+            drawSprite(pWindow,renderer,400,560,0);
             printf("Dans E7\n");
             break;
-        case 400 ... 450 :
-            drawSprite(pWindow,renderer,250,400,1);
+        case 640 ... 720 :
+            drawSprite(pWindow,renderer,400,640,1);
             printf("Dans E8\n");
             break;
         default :
@@ -411,40 +412,40 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
         }
         break;
     /* ligne 6*/
-    case 300 ... 349 :
+    case 480 ... 559 :
         switch(y)
         {
         /* Colonne F*/
-        case 50 ... 99 :
-            drawSprite(pWindow,renderer,300,50,1);
+        case 80 ... 159:
+            drawSprite(pWindow,renderer,480,80,1);
             printf("Dans F1\n");
             break;
-        case 100 ... 149 :
-            drawSprite(pWindow,renderer,300,100,0);
+        case 160 ... 239 :
+            drawSprite(pWindow,renderer,480,160,0);
             printf("Dans F2\n");
             break;
-        case 150 ... 199 :
-            drawSprite(pWindow,renderer,300,150,1);
+        case 240 ... 319 :
+            drawSprite(pWindow,renderer,480,240,1);
             printf("Dans F3\n");
             break;
-        case 200 ... 249 :
-            drawSprite(pWindow,renderer,300,200,0);
+        case 320 ... 399 :
+            drawSprite(pWindow,renderer,480,320,0);
             printf("Dans F4\n");
             break;
-        case 250 ... 299 :
-            drawSprite(pWindow,renderer,300,250,1);
+        case 400 ... 479 :
+            drawSprite(pWindow,renderer,480,400,1);
             printf("Dans F5\n");
             break;
-        case 300 ... 349 :
-            drawSprite(pWindow,renderer,300,300,0);
+        case 480 ... 559 :
+            drawSprite(pWindow,renderer,480,480,0);
             printf("Dans F6\n");
             break;
-        case 350 ... 399 :
-            drawSprite(pWindow,renderer,300,350,1);
+        case 560 ... 639 :
+            drawSprite(pWindow,renderer,480,560,1);
             printf("Dans F7\n");
             break;
-        case 400 ... 450 :
-            drawSprite(pWindow,renderer,300,400,0);
+        case 640 ... 720 :
+            drawSprite(pWindow,renderer,480,640,0);
             printf("Dans F8\n");
             break;
         default :
@@ -453,40 +454,40 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
         }
         break;
     /* ligne 7*/
-    case 350 ... 399 :
+    case 560 ... 639 :
         switch(y)
         {
         /* Colonne H*/
-        case 50 ... 99 :
-            drawSprite(pWindow,renderer,350,50,0);
+        case 80 ... 159 :
+            drawSprite(pWindow,renderer,560,80,0);
             printf("Dans H1\n");
             break;
-        case 100 ... 149 :
-            drawSprite(pWindow,renderer,350,100,1);
+        case 160 ... 239 :
+            drawSprite(pWindow,renderer,560,160,1);
             printf("Dans H2\n");
             break;
-        case 150 ... 199 :
-            drawSprite(pWindow,renderer,350,150,0);
+        case 240 ... 319 :
+            drawSprite(pWindow,renderer,560,240,0);
             printf("Dans H3\n");
             break;
-        case 200 ... 249 :
-            drawSprite(pWindow,renderer,350,200,1);
+        case 320 ... 399 :
+            drawSprite(pWindow,renderer,560,320,1);
             printf("Dans H4\n");
             break;
-        case 250 ... 299 :
-            drawSprite(pWindow,renderer,350,250,0);
+        case 400 ... 479 :
+            drawSprite(pWindow,renderer,560,400,0);
             printf("Dans H5\n");
             break;
-        case 300 ... 349 :
-            drawSprite(pWindow,renderer,350,300,1);
+        case 480 ... 559 :
+            drawSprite(pWindow,renderer,560,480,1);
             printf("Dans H6\n");
             break;
-        case 350 ... 399 :
-            drawSprite(pWindow,renderer,350,350,0);
+        case 560 ... 639 :
+            drawSprite(pWindow,renderer,560,560,0);
             printf("Dans H7\n");
             break;
-        case 400 ... 450 :
-            drawSprite(pWindow,renderer,350,400,1);
+        case 640 ... 720 :
+            drawSprite(pWindow,renderer,560,640,1);
             printf("Dans H8\n");
             break;
         default :
@@ -495,40 +496,40 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
         }
         break;
     /* ligne 8*/
-    case 400 ... 450 :
+    case 640 ... 720 :
         switch(y)
         {
         /* Colonne H*/
-        case 50 ... 99 :
-            drawSprite(pWindow,renderer,400,50,1);
+        case 80 ... 159 :
+            drawSprite(pWindow,renderer,640,80,1);
             printf("Dans G1\n");
             break;
-        case 100 ... 149 :
-            drawSprite(pWindow,renderer,400,100,0);
+        case 160 ... 239 :
+            drawSprite(pWindow,renderer,640,160,0);
             printf("Dans G2\n");
             break;
-        case 150 ... 199 :
-            drawSprite(pWindow,renderer,400,150,1);
+        case 240 ... 319 :
+            drawSprite(pWindow,renderer,640,240,1);
             printf("Dans G3\n");
             break;
-        case 200 ... 249 :
-            drawSprite(pWindow,renderer,400,200,0);
+        case 320 ... 399 :
+            drawSprite(pWindow,renderer,640,320,0);
             printf("Dans G4\n");
             break;
-        case 250 ... 299 :
-            drawSprite(pWindow,renderer,400,250,1);
+        case 400 ... 479 :
+            drawSprite(pWindow,renderer,640,400,1);
             printf("Dans G5\n");
             break;
-        case 300 ... 349 :
-            drawSprite(pWindow,renderer,400,300,0);
+        case 480 ... 559 :
+            drawSprite(pWindow,renderer,640,480,0);
             printf("Dans G6\n");
             break;
-        case 350 ... 399 :
-            drawSprite(pWindow,renderer,400,350,1);
+        case 560 ... 639 :
+            drawSprite(pWindow,renderer,640,560,1);
             printf("Dans G7\n");
             break;
-        case 400 ... 450 :
-            drawSprite(pWindow,renderer,400,400,0);
+        case 640 ... 720 :
+            drawSprite(pWindow,renderer,640,640,0);
             printf("Dans G8\n");
             break;
         default :
@@ -539,5 +540,70 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
     default :
         printf("Out\n");
         break;
+    }
+}
+
+void checkDamePostion(int board[][8],int x, int y ){
+
+    int i=0 ,j=0;
+
+    for(i=0;i<8;i++){
+
+        board[x-1][i]=board[x-1][i]+1; /***colonne***/
+        board[i][y-1]=board[i][y-1]+1; /***ligne***/
+
+        for(int i=0 ; i<8 ; i++){
+            for (int j=0 ; j<8 ; j++){
+                printf("%i ",board[i][j]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+
+
+    for(i=0;i<8;i++){
+
+        board[(x-1)+i][(y-1)+i] = board[(x-1)+i][(y-1)+i]+1;  /*** diago HG->BD à partir de (x;y) (1)***/
+
+        board[(x-1)-i][(y-1)-i] =1; /*** diago HG->BD avant (x;y) (2)***/ // hors dimension lorsque qu'on mets board[(x-1)-i][(y-1)-i] = board[(x-1)-i][(y-1)-i] + 1
+
+        board[(x-1)+i][(y-1)-i] = board[(x-1)+i][(y-1)-i]+1; /*** diago BG->HD avant (x;y)  (2)***/
+
+        board[(x-1)-i][(y-1)+i] = board[(x-1)-i][(y-1)+i]+1; /*** diago BG->HG à partir de (x;y)***/
+
+
+        for(int i=0 ; i<8 ; i++){
+            for (int j=0 ; j<8 ; j++){
+                printf("%i ",board[i][j]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+
+       /*** Enlève le trop de (1) ***/
+        for(j=8;j>(8-y);j--){
+            board[(x-1)+j][(y-1)+j]=board[(x-1)+j][(y-1)+j]-1;
+        }
+        /*** Enlève le trop de (2) ***/ // marche pas
+    /*for(j=8;j>(8-x);j--){
+            board[(x-1)-j][(y-1)+j]=board[(x-1)-j][(y-1)+j]-1;
+        }*/
+
+    /*for(j=7;j>(8-y+1);j--){
+            board[(x-1)+j][(y-1)-j]=0;
+        }*/ // marche pour un partie mais je trouve plus
+
+
+
+
+
+    /*** DISPLAY ***/
+     for(int i=0 ; i<8 ; i++){
+        for (int j=0 ; j<8 ; j++){
+            printf("%i ",board[i][j]);
+        }
+        printf("\n");
     }
 }
