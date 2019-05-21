@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "D:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "D:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\COURS\LP25\DamAss
+CMAKE_SOURCE_DIR = D:\Users\Antoine\Desktop\Codage\C\DamAss
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\COURS\LP25\DamAss\cmake-build-debug
+CMAKE_BINARY_DIR = D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/LP25.dir/depend.make
@@ -59,100 +59,100 @@ include CMakeFiles/LP25.dir/flags.make
 CMakeFiles/LP25.dir/main.c.obj: CMakeFiles/LP25.dir/flags.make
 CMakeFiles/LP25.dir/main.c.obj: CMakeFiles/LP25.dir/includes_C.rsp
 CMakeFiles/LP25.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/LP25.dir/main.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\main.c.obj   -c D:\COURS\LP25\DamAss\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/LP25.dir/main.c.obj"
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\main.c.obj   -c D:\Users\Antoine\Desktop\Codage\C\DamAss\main.c
 
 CMakeFiles/LP25.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LP25.dir/main.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\COURS\LP25\DamAss\main.c > CMakeFiles\LP25.dir\main.c.i
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Users\Antoine\Desktop\Codage\C\DamAss\main.c > CMakeFiles\LP25.dir\main.c.i
 
 CMakeFiles/LP25.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LP25.dir/main.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\COURS\LP25\DamAss\main.c -o CMakeFiles\LP25.dir\main.c.s
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Users\Antoine\Desktop\Codage\C\DamAss\main.c -o CMakeFiles\LP25.dir\main.c.s
 
 CMakeFiles/LP25.dir/draw/drawResetButton.c.obj: CMakeFiles/LP25.dir/flags.make
 CMakeFiles/LP25.dir/draw/drawResetButton.c.obj: CMakeFiles/LP25.dir/includes_C.rsp
 CMakeFiles/LP25.dir/draw/drawResetButton.c.obj: ../draw/drawResetButton.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/LP25.dir/draw/drawResetButton.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\draw\drawResetButton.c.obj   -c D:\COURS\LP25\DamAss\draw\drawResetButton.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/LP25.dir/draw/drawResetButton.c.obj"
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\draw\drawResetButton.c.obj   -c D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawResetButton.c
 
 CMakeFiles/LP25.dir/draw/drawResetButton.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LP25.dir/draw/drawResetButton.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\COURS\LP25\DamAss\draw\drawResetButton.c > CMakeFiles\LP25.dir\draw\drawResetButton.c.i
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawResetButton.c > CMakeFiles\LP25.dir\draw\drawResetButton.c.i
 
 CMakeFiles/LP25.dir/draw/drawResetButton.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LP25.dir/draw/drawResetButton.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\COURS\LP25\DamAss\draw\drawResetButton.c -o CMakeFiles\LP25.dir\draw\drawResetButton.c.s
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawResetButton.c -o CMakeFiles\LP25.dir\draw\drawResetButton.c.s
 
 CMakeFiles/LP25.dir/draw/drawChessboard.c.obj: CMakeFiles/LP25.dir/flags.make
 CMakeFiles/LP25.dir/draw/drawChessboard.c.obj: CMakeFiles/LP25.dir/includes_C.rsp
 CMakeFiles/LP25.dir/draw/drawChessboard.c.obj: ../draw/drawChessboard.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/LP25.dir/draw/drawChessboard.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\draw\drawChessboard.c.obj   -c D:\COURS\LP25\DamAss\draw\drawChessboard.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/LP25.dir/draw/drawChessboard.c.obj"
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\draw\drawChessboard.c.obj   -c D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawChessboard.c
 
 CMakeFiles/LP25.dir/draw/drawChessboard.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LP25.dir/draw/drawChessboard.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\COURS\LP25\DamAss\draw\drawChessboard.c > CMakeFiles\LP25.dir\draw\drawChessboard.c.i
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawChessboard.c > CMakeFiles\LP25.dir\draw\drawChessboard.c.i
 
 CMakeFiles/LP25.dir/draw/drawChessboard.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LP25.dir/draw/drawChessboard.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\COURS\LP25\DamAss\draw\drawChessboard.c -o CMakeFiles\LP25.dir\draw\drawChessboard.c.s
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawChessboard.c -o CMakeFiles\LP25.dir\draw\drawChessboard.c.s
 
 CMakeFiles/LP25.dir/draw/drawSprite.c.obj: CMakeFiles/LP25.dir/flags.make
 CMakeFiles/LP25.dir/draw/drawSprite.c.obj: CMakeFiles/LP25.dir/includes_C.rsp
 CMakeFiles/LP25.dir/draw/drawSprite.c.obj: ../draw/drawSprite.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/LP25.dir/draw/drawSprite.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\draw\drawSprite.c.obj   -c D:\COURS\LP25\DamAss\draw\drawSprite.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/LP25.dir/draw/drawSprite.c.obj"
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\draw\drawSprite.c.obj   -c D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawSprite.c
 
 CMakeFiles/LP25.dir/draw/drawSprite.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LP25.dir/draw/drawSprite.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\COURS\LP25\DamAss\draw\drawSprite.c > CMakeFiles\LP25.dir\draw\drawSprite.c.i
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawSprite.c > CMakeFiles\LP25.dir\draw\drawSprite.c.i
 
 CMakeFiles/LP25.dir/draw/drawSprite.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LP25.dir/draw/drawSprite.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\COURS\LP25\DamAss\draw\drawSprite.c -o CMakeFiles\LP25.dir\draw\drawSprite.c.s
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Users\Antoine\Desktop\Codage\C\DamAss\draw\drawSprite.c -o CMakeFiles\LP25.dir\draw\drawSprite.c.s
 
 CMakeFiles/LP25.dir/eventDetector.c.obj: CMakeFiles/LP25.dir/flags.make
 CMakeFiles/LP25.dir/eventDetector.c.obj: CMakeFiles/LP25.dir/includes_C.rsp
 CMakeFiles/LP25.dir/eventDetector.c.obj: ../eventDetector.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/LP25.dir/eventDetector.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\eventDetector.c.obj   -c D:\COURS\LP25\DamAss\eventDetector.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/LP25.dir/eventDetector.c.obj"
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\eventDetector.c.obj   -c D:\Users\Antoine\Desktop\Codage\C\DamAss\eventDetector.c
 
 CMakeFiles/LP25.dir/eventDetector.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LP25.dir/eventDetector.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\COURS\LP25\DamAss\eventDetector.c > CMakeFiles\LP25.dir\eventDetector.c.i
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Users\Antoine\Desktop\Codage\C\DamAss\eventDetector.c > CMakeFiles\LP25.dir\eventDetector.c.i
 
 CMakeFiles/LP25.dir/eventDetector.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LP25.dir/eventDetector.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\COURS\LP25\DamAss\eventDetector.c -o CMakeFiles\LP25.dir\eventDetector.c.s
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Users\Antoine\Desktop\Codage\C\DamAss\eventDetector.c -o CMakeFiles\LP25.dir\eventDetector.c.s
 
 CMakeFiles/LP25.dir/positionOnChessBoard.c.obj: CMakeFiles/LP25.dir/flags.make
 CMakeFiles/LP25.dir/positionOnChessBoard.c.obj: CMakeFiles/LP25.dir/includes_C.rsp
 CMakeFiles/LP25.dir/positionOnChessBoard.c.obj: ../positionOnChessBoard.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/LP25.dir/positionOnChessBoard.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\positionOnChessBoard.c.obj   -c D:\COURS\LP25\DamAss\positionOnChessBoard.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/LP25.dir/positionOnChessBoard.c.obj"
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\positionOnChessBoard.c.obj   -c D:\Users\Antoine\Desktop\Codage\C\DamAss\positionOnChessBoard.c
 
 CMakeFiles/LP25.dir/positionOnChessBoard.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LP25.dir/positionOnChessBoard.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\COURS\LP25\DamAss\positionOnChessBoard.c > CMakeFiles\LP25.dir\positionOnChessBoard.c.i
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Users\Antoine\Desktop\Codage\C\DamAss\positionOnChessBoard.c > CMakeFiles\LP25.dir\positionOnChessBoard.c.i
 
 CMakeFiles/LP25.dir/positionOnChessBoard.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LP25.dir/positionOnChessBoard.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\COURS\LP25\DamAss\positionOnChessBoard.c -o CMakeFiles\LP25.dir\positionOnChessBoard.c.s
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Users\Antoine\Desktop\Codage\C\DamAss\positionOnChessBoard.c -o CMakeFiles\LP25.dir\positionOnChessBoard.c.s
 
 CMakeFiles/LP25.dir/checkDamePosition.c.obj: CMakeFiles/LP25.dir/flags.make
 CMakeFiles/LP25.dir/checkDamePosition.c.obj: CMakeFiles/LP25.dir/includes_C.rsp
 CMakeFiles/LP25.dir/checkDamePosition.c.obj: ../checkDamePosition.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/LP25.dir/checkDamePosition.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\checkDamePosition.c.obj   -c D:\COURS\LP25\DamAss\checkDamePosition.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/LP25.dir/checkDamePosition.c.obj"
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\LP25.dir\checkDamePosition.c.obj   -c D:\Users\Antoine\Desktop\Codage\C\DamAss\checkDamePosition.c
 
 CMakeFiles/LP25.dir/checkDamePosition.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LP25.dir/checkDamePosition.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\COURS\LP25\DamAss\checkDamePosition.c > CMakeFiles\LP25.dir\checkDamePosition.c.i
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Users\Antoine\Desktop\Codage\C\DamAss\checkDamePosition.c > CMakeFiles\LP25.dir\checkDamePosition.c.i
 
 CMakeFiles/LP25.dir/checkDamePosition.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LP25.dir/checkDamePosition.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\COURS\LP25\DamAss\checkDamePosition.c -o CMakeFiles\LP25.dir\checkDamePosition.c.s
+	D:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Users\Antoine\Desktop\Codage\C\DamAss\checkDamePosition.c -o CMakeFiles\LP25.dir\checkDamePosition.c.s
 
 # Object files for target LP25
 LP25_OBJECTS = \
@@ -175,12 +175,12 @@ LP25.exe: CMakeFiles/LP25.dir/eventDetector.c.obj
 LP25.exe: CMakeFiles/LP25.dir/positionOnChessBoard.c.obj
 LP25.exe: CMakeFiles/LP25.dir/checkDamePosition.c.obj
 LP25.exe: CMakeFiles/LP25.dir/build.make
-LP25.exe: C:/MinGW/lib/libSDL2main.a
-LP25.exe: C:/MinGW/lib/libSDL2.dll.a
+LP25.exe: D:/MinGW/lib/libSDL2main.a
+LP25.exe: D:/MinGW/lib/libSDL2.dll.a
 LP25.exe: CMakeFiles/LP25.dir/linklibs.rsp
 LP25.exe: CMakeFiles/LP25.dir/objects1.rsp
 LP25.exe: CMakeFiles/LP25.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable LP25.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable LP25.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\LP25.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -193,6 +193,6 @@ CMakeFiles/LP25.dir/clean:
 .PHONY : CMakeFiles/LP25.dir/clean
 
 CMakeFiles/LP25.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\COURS\LP25\DamAss D:\COURS\LP25\DamAss D:\COURS\LP25\DamAss\cmake-build-debug D:\COURS\LP25\DamAss\cmake-build-debug D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles\LP25.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Users\Antoine\Desktop\Codage\C\DamAss D:\Users\Antoine\Desktop\Codage\C\DamAss D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug D:\Users\Antoine\Desktop\Codage\C\DamAss\cmake-build-debug\CMakeFiles\LP25.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/LP25.dir/depend
 
