@@ -6,11 +6,29 @@
 
 #IncludeRegexTransform: 
 
-D:/Users/Antoine/Desktop/Codage/C/LP25/main.c
+D:/COURS/LP25/DamAss/checkDamePosition.c
+SDL2/SDL.h
+-
+stdio.h
+-
+draw/draw.h
+D:/COURS/LP25/DamAss/draw/draw.h
+
+D:/COURS/LP25/DamAss/draw/draw.h
+SDL2/SDL.h
+-
+
+D:/COURS/LP25/DamAss/eventDetector.h
+
+D:/COURS/LP25/DamAss/main.c
 SDL2/SDL.h
 -
 stdio.h
 -
 math.h
 -
+eventDetector.h
+D:/COURS/LP25/DamAss/eventDetector.h
+draw/draw.h
+D:/COURS/LP25/DamAss/draw/draw.h
 

@@ -38,19 +38,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Users\Antoine\Desktop\Codage\C\LP25
+CMAKE_SOURCE_DIR = D:\COURS\LP25\DamAss
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Users\Antoine\Desktop\Codage\C\LP25\cmake-build-debug
+CMAKE_BINARY_DIR = D:\COURS\LP25\DamAss\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = D:\Users\Antoine\Desktop\Codage\C\LP25\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"D:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -69,7 +69,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"D:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Users\Antoine\Desktop\Codage\C\LP25\cmake-build-debug\CMakeFiles D:\Users\Antoine\Desktop\Codage\C\LP25\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Users\Antoine\Desktop\Codage\C\LP25\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\COURS\LP25\DamAss\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,6 +122,141 @@ LP25/fast:
 	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/build
 .PHONY : LP25/fast
 
+checkDamePosition.obj: checkDamePosition.c.obj
+
+.PHONY : checkDamePosition.obj
+
+# target to build an object file
+checkDamePosition.c.obj:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/checkDamePosition.c.obj
+.PHONY : checkDamePosition.c.obj
+
+checkDamePosition.i: checkDamePosition.c.i
+
+.PHONY : checkDamePosition.i
+
+# target to preprocess a source file
+checkDamePosition.c.i:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/checkDamePosition.c.i
+.PHONY : checkDamePosition.c.i
+
+checkDamePosition.s: checkDamePosition.c.s
+
+.PHONY : checkDamePosition.s
+
+# target to generate assembly for a file
+checkDamePosition.c.s:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/checkDamePosition.c.s
+.PHONY : checkDamePosition.c.s
+
+draw/drawChessboard.obj: draw/drawChessboard.c.obj
+
+.PHONY : draw/drawChessboard.obj
+
+# target to build an object file
+draw/drawChessboard.c.obj:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawChessboard.c.obj
+.PHONY : draw/drawChessboard.c.obj
+
+draw/drawChessboard.i: draw/drawChessboard.c.i
+
+.PHONY : draw/drawChessboard.i
+
+# target to preprocess a source file
+draw/drawChessboard.c.i:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawChessboard.c.i
+.PHONY : draw/drawChessboard.c.i
+
+draw/drawChessboard.s: draw/drawChessboard.c.s
+
+.PHONY : draw/drawChessboard.s
+
+# target to generate assembly for a file
+draw/drawChessboard.c.s:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawChessboard.c.s
+.PHONY : draw/drawChessboard.c.s
+
+draw/drawResetButton.obj: draw/drawResetButton.c.obj
+
+.PHONY : draw/drawResetButton.obj
+
+# target to build an object file
+draw/drawResetButton.c.obj:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawResetButton.c.obj
+.PHONY : draw/drawResetButton.c.obj
+
+draw/drawResetButton.i: draw/drawResetButton.c.i
+
+.PHONY : draw/drawResetButton.i
+
+# target to preprocess a source file
+draw/drawResetButton.c.i:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawResetButton.c.i
+.PHONY : draw/drawResetButton.c.i
+
+draw/drawResetButton.s: draw/drawResetButton.c.s
+
+.PHONY : draw/drawResetButton.s
+
+# target to generate assembly for a file
+draw/drawResetButton.c.s:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawResetButton.c.s
+.PHONY : draw/drawResetButton.c.s
+
+draw/drawSprite.obj: draw/drawSprite.c.obj
+
+.PHONY : draw/drawSprite.obj
+
+# target to build an object file
+draw/drawSprite.c.obj:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawSprite.c.obj
+.PHONY : draw/drawSprite.c.obj
+
+draw/drawSprite.i: draw/drawSprite.c.i
+
+.PHONY : draw/drawSprite.i
+
+# target to preprocess a source file
+draw/drawSprite.c.i:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawSprite.c.i
+.PHONY : draw/drawSprite.c.i
+
+draw/drawSprite.s: draw/drawSprite.c.s
+
+.PHONY : draw/drawSprite.s
+
+# target to generate assembly for a file
+draw/drawSprite.c.s:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/draw/drawSprite.c.s
+.PHONY : draw/drawSprite.c.s
+
+eventDetector.obj: eventDetector.c.obj
+
+.PHONY : eventDetector.obj
+
+# target to build an object file
+eventDetector.c.obj:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/eventDetector.c.obj
+.PHONY : eventDetector.c.obj
+
+eventDetector.i: eventDetector.c.i
+
+.PHONY : eventDetector.i
+
+# target to preprocess a source file
+eventDetector.c.i:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/eventDetector.c.i
+.PHONY : eventDetector.c.i
+
+eventDetector.s: eventDetector.c.s
+
+.PHONY : eventDetector.s
+
+# target to generate assembly for a file
+eventDetector.c.s:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/eventDetector.c.s
+.PHONY : eventDetector.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -149,6 +284,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/main.c.s
 .PHONY : main.c.s
 
+positionOnChessBoard.obj: positionOnChessBoard.c.obj
+
+.PHONY : positionOnChessBoard.obj
+
+# target to build an object file
+positionOnChessBoard.c.obj:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/positionOnChessBoard.c.obj
+.PHONY : positionOnChessBoard.c.obj
+
+positionOnChessBoard.i: positionOnChessBoard.c.i
+
+.PHONY : positionOnChessBoard.i
+
+# target to preprocess a source file
+positionOnChessBoard.c.i:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/positionOnChessBoard.c.i
+.PHONY : positionOnChessBoard.c.i
+
+positionOnChessBoard.s: positionOnChessBoard.c.s
+
+.PHONY : positionOnChessBoard.s
+
+# target to generate assembly for a file
+positionOnChessBoard.c.s:
+	$(MAKE) -f CMakeFiles\LP25.dir\build.make CMakeFiles/LP25.dir/positionOnChessBoard.c.s
+.PHONY : positionOnChessBoard.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -158,9 +320,27 @@ help:
 	@echo ... LP25
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... checkDamePosition.obj
+	@echo ... checkDamePosition.i
+	@echo ... checkDamePosition.s
+	@echo ... draw/drawChessboard.obj
+	@echo ... draw/drawChessboard.i
+	@echo ... draw/drawChessboard.s
+	@echo ... draw/drawResetButton.obj
+	@echo ... draw/drawResetButton.i
+	@echo ... draw/drawResetButton.s
+	@echo ... draw/drawSprite.obj
+	@echo ... draw/drawSprite.i
+	@echo ... draw/drawSprite.s
+	@echo ... eventDetector.obj
+	@echo ... eventDetector.i
+	@echo ... eventDetector.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... positionOnChessBoard.obj
+	@echo ... positionOnChessBoard.i
+	@echo ... positionOnChessBoard.s
 .PHONY : help
 
 
