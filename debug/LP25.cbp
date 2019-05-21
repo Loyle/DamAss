@@ -76,6 +76,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/COURS/LP25/DamAss/board/board.h">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/COURS/LP25/DamAss/board/boxStructure.h">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/COURS/LP25/DamAss/board/initBoard.c">
+			<Option target="LP25"/>
+		</Unit>
 		<Unit filename="D:/COURS/LP25/DamAss/checkDamePosition.c">
 			<Option target="LP25"/>
 		</Unit>
