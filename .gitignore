@@ -37,7 +37,8 @@ debug/CMakeFiles
 debug/cmake_install.cmake
 debug/CMakeCache.txt
 debug/MakeFile
-debug/LP25.cbp
+*.cbp
+*.exe
 
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
@@ -77,4 +78,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-debug/LP25.exe
