@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="LP25"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Users/Antoine/Desktop/Codage/C/DamAss/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LP25">
+				<Option output="D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/LP25.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Users/Antoine/Desktop/Codage/C/DamAss/debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/MinGW/include/SDL2"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 LP25"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LP25/fast">
+				<Option output="D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/LP25.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Users/Antoine/Desktop/Codage/C/DamAss/debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/MinGW/include/SDL2"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 LP25/fast"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Users/Antoine/Desktop/Codage/C/DamAss/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Users/Antoine/Desktop/Codage/C/DamAss/debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/Users/Antoine/Desktop/Codage/C/DamAss/debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/checkDamePosition.c">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/draw/draw.h">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/draw/drawChessboard.c">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/draw/drawResetButton.c">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/draw/drawSprite.c">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/eventDetector.c">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/eventDetector.h">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/main.c">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/positionOnChessBoard.c">
+			<Option target="LP25"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="D:/Users/Antoine/Desktop/Codage/C/DamAss/cmake/FindSDL2.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
