@@ -7,6 +7,7 @@
 #include "eventDetector.h"
 #include "draw/draw.h"
 
+
 /*** EVENT FUNCTION ***/
 void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer)
 {
