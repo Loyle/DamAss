@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Users/Antoine/Desktop/Codage/C/LP25/main.c
+SDL2/SDL.h
+-
+stdio.h
+-
+math.h
+-
+

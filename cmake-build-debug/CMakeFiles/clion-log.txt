@@ -1,0 +1,5 @@
+"D:\Program Files (x86)\CLion 2019.1.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\Users\Antoine\Desktop\Codage\C\LP25
+-- Found SDL2: mingw32;-mwindows;D:/MinGW/lib/libSDL2main.a;D:/MinGW/lib/libSDL2.dll.a  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/Users/Antoine/Desktop/Codage/C/LP25/cmake-build-debug
