@@ -5,7 +5,7 @@
 #ifndef LP25_BOARD_H
 #define LP25_BOARD_H
 
-#include "boxStructure.h"
-Box **initBoard(int size);
+#include "cellStructure.h"
+Cell **initBoard(int size);
 
 #endif //LP25_BOARD_H

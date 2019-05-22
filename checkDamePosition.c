@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include "draw/draw.h"
 
-void checkDamePostion(int board[][8],int x, int y ){
+void checkDamePosition(int board[][8],int x, int y ){
     // Horizontal / Vertical
     for(int i = 0; i <= 7; i++) {
         board[x][i] = board[x][i] + 1;

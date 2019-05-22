@@ -1,3 +1,4 @@
+
 #include <SDL2/SDL.h>
 
 #include <stdio.h>
@@ -6,12 +7,15 @@
 #include "eventDetector.h"
 #include "draw/draw.h"
 
+
 void positionOnChessboard(SDL_Window*,SDL_Renderer*,int,int);
-void checkDamePostion(int[][8],int,int);
+void checkDamePosition(int[][8],int,int);
 
 
 int main(int argc, char** argv)
 {
+    fflush(stdout);
+
     if (SDL_Init(SDL_INIT_VIDEO) != 0 )
     {
         fprintf(stdout,"Échec de l'initialisation de la SDL (%s)\n",SDL_GetError());
@@ -28,7 +32,7 @@ int main(int argc, char** argv)
 
     drawChessboard(pWindow,renderer);
     drawResetButton(pWindow,renderer);
-    checkDamePostion(board,4,4);
+    checkDamePosition(board,4,4);
     eventDetector(pWindow,renderer);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(pWindow);
