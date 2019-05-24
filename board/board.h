@@ -7,5 +7,5 @@
 
 #include "cellStructure.h"
 Cell **initBoard(int size);
-
+void checkDameConflict();
 #endif //LP25_BOARD_H

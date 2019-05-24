@@ -3,9 +3,10 @@
 //
 #include <SDL2/SDL.h>
 #include <stdio.h>
-#include "draw/draw.h"
+#include "../draw/draw.h"
+#include "board.h"
 
-void checkDamePosition(int board[][8],int x, int y ){
+void checkDameConflict(int board[][8],int x, int y ){
     // Horizontal / Vertical
     for(int i = 0; i <= 7; i++) {
         board[x][i] = board[x][i] + 1;
