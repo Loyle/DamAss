@@ -15,6 +15,7 @@ Cell **initBoard(int size, int cellSize ,int decal) {
         for (int y = 0; y < size; ++y) {
             board[x][y].pixelX = x * cellSize + decal;
             board[x][y].pixelY = y * cellSize+ decal;
+            board[x][y].decal = decal
             board[x][y].hasDame = 0;
             board[x][y].size = cellSize;
         }
