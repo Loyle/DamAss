@@ -10,6 +10,7 @@ struct Cell {
     int pixelX;
     int pixelY;
     int hasDame;
+    int size;
 };
 
 #endif //LP25_CELLSTRUCTURE_H

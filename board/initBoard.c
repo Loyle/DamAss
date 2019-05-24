@@ -16,6 +16,7 @@ Cell **initBoard(int size, int cellSize) {
             board[x][y].pixelX = x * cellSize;
             board[x][y].pixelY = y * cellSize;
             board[x][y].hasDame = 0;
+            board[x][y].size = cellSize;
         }
     }
 
