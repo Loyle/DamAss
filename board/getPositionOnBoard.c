@@ -7,7 +7,13 @@
 
 void getPositionOnBoard(int *x , int *y, Cell** board){
 
-    *x = (*x-board[0][0].decal)/(board[0][0].size-1);
-    *y = (*y-board[0][0].decal)/(board[0][0].size-1);
+    *x = (*x-board[0][0].decal)/(board[0][0].size);
+    *y = (*y-board[0][0].decal)/(board[0][0].size);
+    if(*x >= 8) {
+        *x = 7;
+    }
+    if(*y >= 8) {
+        *y = 7;
+    }
 
 }

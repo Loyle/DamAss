@@ -6,14 +6,14 @@
 #include <SDL2/SDL_render.h>
 #include "draw.h"
 
-void drawHelp(SDL_Window* pWindow, SDL_Renderer* renderer ,int x, int y ){
+void drawHelp(SDL_Window *pWindow, SDL_Renderer *renderer, int x, int y, Cell **board) {
     // Horizontal / Vertical
-    for(int i = 0; i <= 7; i++) {
-        if((i!=x)){
-            drawSquareHelp(pWindow,renderer,i,y);
+    for (int i = 0; i <= 7; i++) {
+        if ((i != x)) {
+            drawSquareHelp(pWindow, renderer, i, y , board);
         }
-        if (i!=y){
-            drawSquareHelp(pWindow,renderer,x,i);
+        if (i != y) {
+            drawSquareHelp(pWindow, renderer, x, i, board);
         }
     }
     // Diagonal haut-gauche + bas-gauche
@@ -21,35 +21,35 @@ void drawHelp(SDL_Window* pWindow, SDL_Renderer* renderer ,int x, int y ){
     int saveY;
 
     // Bas droite
-    saveX = x+1;
-    saveY = y+1;
-    while(saveX <= 7 && saveY <= 7) {
-        drawSquareHelp(pWindow,renderer,saveX,saveY);
+    saveX = x + 1;
+    saveY = y + 1;
+    while (saveX <= 7 && saveY <= 7) {
+        drawSquareHelp(pWindow, renderer, saveX, saveY, board);
         saveX++;
         saveY++;
     }
 
     // Haut droite
-    saveX = x+1;
-    saveY = y-1;
-    while(saveX <= 7 && saveY >= 0) {
-        drawSquareHelp(pWindow,renderer,saveX,saveY);
+    saveX = x + 1;
+    saveY = y - 1;
+    while (saveX <= 7 && saveY >= 0) {
+        drawSquareHelp(pWindow, renderer, saveX, saveY, board);
         saveX++;
         saveY--;
     }
     // Haut gauche
-    saveX = x-1;
-    saveY = y-1;
-    while(saveX >= 0 && saveY >= 0) {
-        drawSquareHelp(pWindow,renderer,saveX,saveY);
+    saveX = x - 1;
+    saveY = y - 1;
+    while (saveX >= 0 && saveY >= 0) {
+        drawSquareHelp(pWindow, renderer, saveX, saveY, board);
         saveX--;
         saveY--;
     }
     // Bas gauche
-    saveX = x-1;
-    saveY = y+1;
-    while(saveX >= 0 && saveY <= 7) {
-        drawSquareHelp(pWindow,renderer,saveX,saveY);
+    saveX = x - 1;
+    saveY = y + 1;
+    while (saveX >= 0 && saveY <= 7) {
+        drawSquareHelp(pWindow, renderer, saveX, saveY, board);
         saveX--;
         saveY++;
     }

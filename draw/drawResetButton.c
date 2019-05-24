@@ -3,6 +3,7 @@
 //
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include "draw.h"
 
 /*** DRAW RESET BUTTON ***/
 void drawResetButton(SDL_Window* pWindow, SDL_Renderer* renderer){
@@ -10,6 +11,9 @@ void drawResetButton(SDL_Window* pWindow, SDL_Renderer* renderer){
 
     if (reset)
     {
+        Uint32 colorkey = SDL_MapRGB(reset->format,0,255,0);
+        SDL_SetColorKey( reset, SDL_RLEACCEL || reset, colorkey );
+
         SDL_Texture* sReset = SDL_CreateTextureFromSurface(renderer,reset);
         SDL_Rect dest = {810,650,100,100};
         SDL_RenderCopy(renderer,sReset,NULL,&dest);

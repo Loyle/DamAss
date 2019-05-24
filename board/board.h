@@ -7,6 +7,14 @@
 
 #include "cellStructure.h"
 
+typedef struct Board Board;
+struct Board {
+    Cell **cells;
+    int size;
+    int xDecal;
+    int yDecal;
+};
+
 void checkDameConflict();
 Cell **initBoard(int size, int cellSize, int decal);
 void getPositionOnBoard(int *x , int *y, Cell** board);
