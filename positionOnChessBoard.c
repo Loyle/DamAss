@@ -17,7 +17,7 @@ void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int 
             {
                 /* Colonne A*/
                 case 80 ... 159 :
-                    drawSprite(pWindow,renderer,80,80,0);
+                    drawSprite(pWindow,renderer,80,80,);
                     printf("Dans A1\n");
                     break;
                 case 160 ... 239 :
