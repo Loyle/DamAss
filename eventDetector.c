@@ -9,7 +9,7 @@
 
 
 /*** EVENT FUNCTION ***/
-void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer)
+void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer,Cell **board)
 {
     int continuer = 1;
     int fullscreen = 0;
@@ -35,7 +35,7 @@ void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer)
                     {
                         fullscreen = 0;
                         SDL_SetWindowFullscreen(pWindow,0);
-                        drawChessboard(pWindow,renderer);
+                        drawChessboard(pWindow,renderer,board);
                     }
                 }
                 /*** EVENT Reset Window ***/
@@ -43,7 +43,7 @@ void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer)
                 {
                     SDL_SetRenderDrawColor(renderer,0,0,0,255);
                     SDL_RenderClear(renderer);
-                    drawChessboard(pWindow,renderer);
+                    drawChessboard(pWindow,renderer,board);
                     drawResetButton(pWindow,renderer);
 
                 }
@@ -58,7 +58,7 @@ void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer)
                     {
                         SDL_SetRenderDrawColor(renderer,0,0,0,255);
                         SDL_RenderClear(renderer);
-                        drawChessboard(pWindow,renderer);
+                        drawChessboard(pWindow,renderer,board);
                         drawResetButton(pWindow,renderer);
                     }
                     printf("x : %i\n",x);

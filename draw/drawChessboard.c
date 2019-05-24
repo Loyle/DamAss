@@ -3,37 +3,23 @@
 //
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include "../board/cellStructure.h"
 
 /***DRAW CHESSBOARD***/
-void drawChessboard(SDL_Window* pWindow,SDL_Renderer* renderer)
+void drawChessboard(SDL_Window* pWindow,SDL_Renderer* renderer, Cell **board)
 {
-    int X,Y ;
-    SDL_GetWindowSize(pWindow,&X,&Y);
-    SDL_Color brown = {89, 39, 3, 255};
-    SDL_Color beige = {251, 217, 126, 255};
+    SDL_Color colorArray[2]={{251, 217, 126, 255},{89, 39, 3, 255}};  // beige,brown
 
-    for(int j=0; j<4; j++)
-    {
-        /**Odd line pattern**/
-        for(int i=0; i<4; i++ )
-        {
-            SDL_SetRenderDrawColor(renderer, beige.r, beige.g, beige.b, beige.a);
-            SDL_Rect rect = {(Y/10)*(2*i+1), (Y/10)*(2*j+1), Y/10, Y/10};
-            SDL_RenderFillRect(renderer, &rect);
-            SDL_SetRenderDrawColor(renderer, brown.r, brown.g, brown.b, brown.a);
-            SDL_Rect rect2 = {(Y/5)*(i+1),(Y/10)*(2*j+1),Y/10,Y/10};
-            SDL_RenderFillRect(renderer, &rect2);
-        }
-        /**Even line pattern**/
-        for(int i=0; i<4; i++ )
-        {
-            SDL_SetRenderDrawColor(renderer, brown.r, brown.g, brown.b, brown.a);
-            SDL_Rect rect = {(Y/10)*(2*i+1), (Y/5)*(j+1), Y/10, Y/10};
-            SDL_RenderFillRect(renderer, &rect);
-            SDL_SetRenderDrawColor(renderer, beige.r, beige.g, beige.b, beige.a);
-            SDL_Rect rect2 = {(Y/5)*(i+1),(Y/5)*(j+1),Y/10,Y/10};
-            SDL_RenderFillRect(renderer, &rect2);
-        }
-    }
+       for (int x=0;x<8;x++ ){
+           for (int y = 0; y <8 ; ++y) {
+               int colorID = (x+y)%2;
+               SDL_SetRenderDrawColor(renderer, colorArray[colorID].r, colorArray[colorID].g, colorArray[colorID].b, colorArray[colorID].a);
+               SDL_Rect rect = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
+               SDL_RenderFillRect(renderer, &rect);
+           }
+
+       }
+
+
     SDL_RenderPresent(renderer);
 }

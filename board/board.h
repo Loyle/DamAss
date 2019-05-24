@@ -6,6 +6,6 @@
 #define LP25_BOARD_H
 
 #include "cellStructure.h"
-Cell **initBoard(int size);
+Cell **initBoard(int size, int cellSize, int decal);
 
 #endif //LP25_BOARD_H
