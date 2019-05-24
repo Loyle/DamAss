@@ -9,5 +9,5 @@
 
 void checkDameConflict();
 Cell **initBoard(int size, int cellSize, int decal);
-
+void getPositionOnBoard(int *x , int *y, Cell** board);
 #endif //LP25_BOARD_H

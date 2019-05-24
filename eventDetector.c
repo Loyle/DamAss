@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "eventDetector.h"
 #include "draw/draw.h"
+#include "board/board.h"
 
 
 /*** EVENT FUNCTION ***/
@@ -63,7 +64,10 @@ void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer,Cell **board)
                     }
                     printf("x : %i\n",x);
                     printf("y : %i\n",y);
-                    positionOnChessboard(pWindow,renderer,x,y);
+                    //positionOnChessboard(pWindow,renderer,x,y);
+                    getPositionOnBoard(&x,&y,board);
+                    drawSprite(pWindow,renderer,x,y,board);
+
                 }
                 break;
         }

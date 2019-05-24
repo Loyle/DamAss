@@ -22,10 +22,10 @@ void drawSprite(SDL_Window* pWindow,SDL_Renderer* renderer,int x,int y,Cell **bo
 
             SDL_Rect dest = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
             if((x+y)%2){
-                SDL_RenderCopy(renderer,sDameBeige,NULL,&dest);
+                SDL_RenderCopy(renderer,sDameBrown,NULL,&dest);
             }
             else{
-                SDL_RenderCopy(renderer,sDameBrown,NULL,&dest);
+                SDL_RenderCopy(renderer,sDameBeige,NULL,&dest);
             }
             SDL_RenderPresent(renderer);
             SDL_DestroyTexture(sDameBeige);
