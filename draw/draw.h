@@ -11,5 +11,7 @@
 void drawSprite(SDL_Window*,SDL_Renderer*,int x,int y,Cell** board);
 void drawResetButton(SDL_Window*,SDL_Renderer*);
 void drawChessboard(SDL_Window*,SDL_Renderer*,Cell ** board);
+void drawHelp(SDL_Window*,SDL_Renderer*,int x, int y );
+void drawSquareHelp(SDL_Window*,SDL_Renderer*,int x, int y );
 
 #endif //DAMASS_DRAW_H

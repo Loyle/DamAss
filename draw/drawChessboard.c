@@ -17,9 +17,6 @@ void drawChessboard(SDL_Window* pWindow,SDL_Renderer* renderer, Cell **board)
                SDL_Rect rect = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
                SDL_RenderFillRect(renderer, &rect);
            }
-
        }
-
-
     SDL_RenderPresent(renderer);
 }

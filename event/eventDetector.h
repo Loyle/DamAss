@@ -6,7 +6,7 @@
 #define DAMASS_EVENTDETECTOR_H
 
 #include <SDL2/SDL.h>
-#include "board/cellStructure.h"
+#include "../board/cellStructure.h"
 
 void eventDetector(SDL_Window*,SDL_Renderer*,Cell**);
 #endif //DAMASS_EVENTDETECTOR_H

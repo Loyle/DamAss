@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "eventDetector.h"
+#include "event/eventDetector.h"
 #include "draw/draw.h"
 #include "board/board.h"
 

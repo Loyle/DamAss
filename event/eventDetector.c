@@ -5,8 +5,8 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include "eventDetector.h"
-#include "draw/draw.h"
-#include "board/board.h"
+#include "../draw/draw.h"
+#include "../board/board.h"
 
 
 /*** EVENT FUNCTION ***/
@@ -15,6 +15,7 @@ void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer,Cell **board)
     int continuer = 1;
     int fullscreen = 0;
     SDL_Event event;
+    int i = -1, j = -1;
 
     while (continuer)
     {
@@ -46,17 +47,17 @@ void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer,Cell **board)
                     SDL_RenderClear(renderer);
                     drawChessboard(pWindow,renderer,board);
                     drawResetButton(pWindow,renderer);
-
                 }
                 break;
             case SDL_MOUSEBUTTONUP:
-                /*** EVENT Get Mouse Position ***/
+                /*** EVENT Get Mouse Click Position ***/
                 if (event.button.button == SDL_BUTTON_LEFT)
                 {
                     int x = event.button.x;
                     int y = event.button.y;
                     if (( x>=814)&&(x<=910)&&(y>=685)&&(y<=720))
                     {
+                        /*** EVENT Reset Window ***/
                         SDL_SetRenderDrawColor(renderer,0,0,0,255);
                         SDL_RenderClear(renderer);
                         drawChessboard(pWindow,renderer,board);
@@ -64,12 +65,33 @@ void eventDetector(SDL_Window* pWindow,SDL_Renderer* renderer,Cell **board)
                     }
                     printf("x : %i\n",x);
                     printf("y : %i\n",y);
-                    //positionOnChessboard(pWindow,renderer,x,y);
                     getPositionOnBoard(&x,&y,board);
                     drawSprite(pWindow,renderer,x,y,board);
-
                 }
                 break;
+
+            case SDL_MOUSEMOTION:
+                /*** EVENT mouse motion***/
+                if ((event.motion.x>=board[0][0].decal)&&(event.motion.y>=board[0][0].decal)&&(event.motion.x<=board[0][0].size*8 + board[0][0].decal)&&(event.motion.y<=board[0][0].size*8 + board[0][0].decal)){
+                    int x = event.motion.x;
+                    int y = event.button.y;
+                    getPositionOnBoard(&x,&y,board);
+
+                    if(i != x || j != y) {
+                        // clear l'ancienne case (avec seulement si x et y != -1
+                        if((i>=0)&&(j>=0)){
+                            SDL_SetRenderDrawColor(renderer,0,0,0,255);
+                            SDL_RenderClear(renderer);
+                            drawChessboard(pWindow,renderer,board);
+                            drawResetButton(pWindow,renderer);
+                        }
+                        i = x;
+                        j = y;
+                        drawSprite(pWindow,renderer,x,y,board);
+                        drawHelp(pWindow,renderer,x,y);
+                    }
+                }
         }
     }
 }
+
