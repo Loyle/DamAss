@@ -7,7 +7,7 @@
 #include "draw/draw.h"
 
 /*** FIND POSITION MOUSE ON CHESSBOARD ***/
-void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int x,int y)
+void positionOnChessboard(SDL_Window* pWindow,SDL_Renderer* renderer ,int PixelX,int PixelY)
 {
     switch (x)
     {
