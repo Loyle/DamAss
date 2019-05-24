@@ -6,6 +6,7 @@
 
 #include "eventDetector.h"
 #include "draw/draw.h"
+#include "board/board.h"
 
 
 void positionOnChessboard(SDL_Window*,SDL_Renderer*,int,int);
@@ -28,12 +29,13 @@ int main(int argc, char** argv)
                                800,
                                SDL_WINDOW_SHOWN|SDL_SWSURFACE); // SDL_WINDOW_RESIZABLE pour pouvoir changer taille window
     SDL_Renderer *renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
-    int board[8][8]={0};
+    //int board[8][8]={0};
 
-    drawChessboard(pWindow,renderer);
+    Cell **board = initBoard(8,80,80);
+    drawChessboard(pWindow,renderer,board);
     drawResetButton(pWindow,renderer);
-    checkDamePosition(board,4,4);
-    eventDetector(pWindow,renderer);
+    //checkDamePosition(board,4,4);
+    eventDetector(pWindow,renderer,board);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(pWindow);
 
