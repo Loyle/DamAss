@@ -25,9 +25,9 @@ void drawChessboard(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
             if (board[x][y].hasDame) {
                 SDL_Surface *dameSurface;
                 if ((x + y) % 2) {
-                    dameSurface = SDL_LoadBMP("./data/brun_semi_small.bmp"); /* color = 0*/
+                    dameSurface = SDL_LoadBMP("./data/brun_semi_small.bmp");
                 } else {
-                    dameSurface = SDL_LoadBMP("./data/beige_semi_small.bmp"); /* color = 0*/
+                    dameSurface = SDL_LoadBMP("./data/beige_semi_small.bmp");
                 }
 
                 SDL_Texture *dameTexture = SDL_CreateTextureFromSurface(renderer, dameSurface);

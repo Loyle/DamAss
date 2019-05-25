@@ -54,9 +54,12 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         board = initBoard(8, 80, 80);
                         drawChessboard(pWindow, renderer, board);
                         drawResetButton(pWindow, renderer);
-                    } else {
+                    } else if((event.motion.x >= board[0][0].decal) && (event.motion.y >= board[0][0].decal) &&
+                              (event.motion.x <= board[0][0].size * 8 + board[0][0].decal) &&
+                              (event.motion.y <= board[0][0].size * 8 + board[0][0].decal)) {
                         getPositionOnBoard(&x, &y, board);
                         drawSprite(pWindow, renderer, x, y, board, 1);
+
                     }
                 }
                 break;
@@ -71,7 +74,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                     getPositionOnBoard(&x, &y, board);
 
                     if (i != x || j != y) {
-                        // clear l'ancienne case (avec seulement si x et y != -1
+                        // clear l'ancienne case (avec seulement si x et y != -1)
                         if ((i >= 0) && (j >= 0)) {
                             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
                             //SDL_RenderClear(renderer);
@@ -85,7 +88,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                     }
                 }
                 else {
-                    // We leave or we are out of the chest
+                    // We leave or we are out of the chess
                     if(i >= 0 && j >= 0) {
                         i = -1;
                         j = -1;
