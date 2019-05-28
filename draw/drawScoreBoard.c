@@ -8,6 +8,7 @@
 #include "draw.h"
 
 void drawScoreBoard(SDL_Renderer *renderer, int rest) {
+    TTF_Init();
     /*if(TTF_Init() == -1)
     {
         fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
