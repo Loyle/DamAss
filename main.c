@@ -1,6 +1,5 @@
 
 #include <SDL2/SDL.h>
-
 #include <stdio.h>
 #include <math.h>
 
@@ -29,12 +28,11 @@ int main(int argc, char **argv) {
                                SDL_WINDOW_SHOWN |
                                SDL_SWSURFACE); // SDL_WINDOW_RESIZABLE pour pouvoir changer taille window
     SDL_Renderer *renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
-    SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
-    SDL_RenderClear(renderer);
 
     Cell **board = initBoard(8, 80, 80);
-    drawChessboard(pWindow, renderer, board);
-    drawResetButton(pWindow, renderer);
+
+    initGameWindows(renderer,board);
+
     eventDetector(pWindow, renderer, board);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(pWindow);
