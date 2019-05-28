@@ -6,11 +6,17 @@
 #include "../draw/draw.h"
 #include "board.h"
 
-void checkDameConflict(int board[][8],int x, int y ){
+void checkDameConflict(Cell ** board,int x, int y ){
     // Horizontal / Vertical
     for(int i = 0; i <= 7; i++) {
-        board[x][i] = board[x][i] + 1;
-        board[i][y] = board[i][y] + 1;
+        if ((board[x][i].hasDame == 1)&&(y!=i)){
+            board[x][y].isConflict = 1;
+            board[x][i].isConflict = 1;
+        }
+        if ((board[i][y].hasDame == 1)&&(x!=i)){
+            board[x][y].isConflict = 1;
+            board[i][y].isConflict = 1;
+        }
     }
     // Diagonal haut-gauche + bas-gauche
     int saveX;
@@ -20,7 +26,10 @@ void checkDameConflict(int board[][8],int x, int y ){
     saveX = x;
     saveY = y;
     while(saveX <= 7 && saveY <= 7) {
-        board[saveX][saveY] = board[saveX][saveY] + 1;
+        if (board[saveX][saveY].hasDame == 1 && saveX!=x && saveY!=y ){
+            board[x][y].isConflict == 1 ;
+            board[saveX][saveY].isConflict == 1 ;
+        }
         saveX++;
         saveY++;
     }
@@ -29,7 +38,10 @@ void checkDameConflict(int board[][8],int x, int y ){
     saveX = x;
     saveY = y;
     while(saveX <= 7 && saveY >= 0) {
-        board[saveX][saveY] = board[saveX][saveY] + 1;
+        if (board[saveX][saveY].hasDame == 1 && saveX!=x && saveY!=y ){
+            board[x][y].isConflict == 1 ;
+            board[saveX][saveY].isConflict == 1 ;
+        }
         saveX++;
         saveY--;
     }
@@ -37,7 +49,10 @@ void checkDameConflict(int board[][8],int x, int y ){
     saveX = x;
     saveY = y;
     while(saveX >= 0 && saveY >= 0) {
-        board[saveX][saveY] = board[saveX][saveY] + 1;
+        if (board[saveX][saveY].hasDame == 1 && saveX!=x && saveY!=y ){
+            board[x][y].isConflict == 1 ;
+            board[saveX][saveY].isConflict == 1 ;
+        }
         saveX--;
         saveY--;
     }
@@ -45,12 +60,13 @@ void checkDameConflict(int board[][8],int x, int y ){
     saveX = x;
     saveY = y;
     while(saveX >= 0 && saveY <= 7) {
-        board[saveX][saveY] = board[saveX][saveY] + 1;
+        if (board[saveX][saveY].hasDame == 1 && saveX!=x && saveY!=y ){
+            board[x][y].isConflict == 1 ;
+            board[saveX][saveY].isConflict == 1 ;
+        }
         saveX--;
         saveY++;
     }
-
-    board[x][y] = board[x][y] - 5;
 
 
     printf("[DEBUG] Display result\n");

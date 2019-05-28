@@ -7,7 +7,7 @@
 #include "draw.h"
 
 /***DRAW DAME SPRITE***/
-void drawSprite(SDL_Window *pWindow, SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) {
+void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) {
 
     // Draw dame only if there is no dame actually
     if (board[x][y].hasDame == 0) {

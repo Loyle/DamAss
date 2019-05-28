@@ -10,6 +10,7 @@ struct Cell {
     int pixelX;
     int pixelY;
     int hasDame;
+    int isConflict;
     int size;
     int decal;
 };

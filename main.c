@@ -8,9 +8,7 @@
 #include "board/board.h"
 
 
-void positionOnChessboard(SDL_Window *, SDL_Renderer *, int, int);
-
-void checkDamePosition(int[][8], int, int);
+//void checkDamePosition(int[][8], int, int);
 
 
 int main(int argc, char **argv) {
@@ -32,7 +30,6 @@ int main(int argc, char **argv) {
     Cell **board = initBoard(8, 80, 80);
 
     initGameWindows(renderer,board);
-
     eventDetector(pWindow, renderer, board);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(pWindow);
