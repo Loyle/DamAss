@@ -8,6 +8,12 @@
 
 void checkDameConflict(Cell ** board,int x, int y ){
     // Horizontal / Vertical
+    for (int i = 0; i <= 7; ++i) {
+        for (int j = 0; j <= 7; ++j) {
+            board[i][j].isConflict = 0;
+        }
+    }
+
     for(int i = 0; i <= 7; i++) {
         if ((board[x][i].hasDame == 1)&&(y!=i)){
             board[x][y].isConflict = 1;
@@ -68,7 +74,7 @@ void checkDameConflict(Cell ** board,int x, int y ){
         saveY++;
     }
 
-
+-
     printf("[DEBUG] Display result\n");
 
     /*** DISPLAY ***/
