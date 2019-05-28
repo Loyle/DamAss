@@ -18,10 +18,12 @@ void checkDameConflict(Cell ** board,int x, int y ){
         if ((board[x][i].hasDame == 1)&&(y!=i)){
             board[x][y].isConflict = 1;
             board[x][i].isConflict = 1;
+            setConflictLine(board,x,y,x,i);
         }
         if ((board[i][y].hasDame == 1)&&(x!=i)){
             board[x][y].isConflict = 1;
             board[i][y].isConflict = 1;
+            setConflictLine(board,x,y,i,y);
         }
     }
     // Diagonal haut-gauche + bas-gauche
@@ -33,8 +35,10 @@ void checkDameConflict(Cell ** board,int x, int y ){
     saveY = y;
     while(saveX <= 7 && saveY <= 7) {
         if (board[saveX][saveY].hasDame == 1 && saveX!=x && saveY!=y ){
-            board[x][y].isConflict == 1 ;
-            board[saveX][saveY].isConflict == 1 ;
+            board[x][y].isConflict = 1 ;
+            board[saveX][saveY].isConflict = 1 ;
+            setConflictLine(board,x,y,saveY,saveY);
+
         }
         saveX++;
         saveY++;
@@ -45,8 +49,10 @@ void checkDameConflict(Cell ** board,int x, int y ){
     saveY = y;
     while(saveX <= 7 && saveY >= 0) {
         if (board[saveX][saveY].hasDame == 1 && saveX!=x && saveY!=y ){
-            board[x][y].isConflict == 1 ;
-            board[saveX][saveY].isConflict == 1 ;
+            board[x][y].isConflict = 1 ;
+            board[saveX][saveY].isConflict = 1 ;
+            setConflictLine(board,x,y,saveX,saveY);
+
         }
         saveX++;
         saveY--;
@@ -56,8 +62,10 @@ void checkDameConflict(Cell ** board,int x, int y ){
     saveY = y;
     while(saveX >= 0 && saveY >= 0) {
         if (board[saveX][saveY].hasDame == 1 && saveX!=x && saveY!=y ){
-            board[x][y].isConflict == 1 ;
-            board[saveX][saveY].isConflict == 1 ;
+            board[x][y].isConflict = 1 ;
+            board[saveX][saveY].isConflict = 1 ;
+            setConflictLine(board,x,y,saveX,saveY);
+
         }
         saveX--;
         saveY--;
@@ -67,8 +75,9 @@ void checkDameConflict(Cell ** board,int x, int y ){
     saveY = y;
     while(saveX >= 0 && saveY <= 7) {
         if (board[saveX][saveY].hasDame == 1 && saveX!=x && saveY!=y ){
-            board[x][y].isConflict == 1 ;
-            board[saveX][saveY].isConflict == 1 ;
+            board[x][y].isConflict = 1 ;
+            board[saveX][saveY].isConflict = 1 ;
+            setConflictLine(board,x,y,saveX,saveY);
         }
         saveX--;
         saveY++;

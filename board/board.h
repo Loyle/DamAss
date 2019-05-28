@@ -15,7 +15,9 @@ struct Board {
     int yDecal;
 };
 
-void checkDameConflict(Cell** board, int x , int y);
 Cell **initBoard(int size, int cellSize, int decal);
 void getPositionOnBoard(int *x , int *y, Cell** board);
+void checkDameConflict(Cell** board, int x , int y);
+void setConflictLine(Cell** board ,int xStart, int yStart, int xEnd , int yEnd);
+
 #endif //LP25_BOARD_H

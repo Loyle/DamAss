@@ -20,7 +20,6 @@ void drawChessboard(SDL_Renderer *renderer, Cell **board) {
             SDL_RenderFillRect(renderer, &rect);
 
 
-
             // ReDraw dames
             if (board[x][y].hasDame) {
                 SDL_Surface *dameSurface;
