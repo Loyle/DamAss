@@ -6,7 +6,7 @@
 #include "draw.h"
 
 /*** DRAW RESET BUTTON ***/
-void drawResetButton(SDL_Window* pWindow, SDL_Renderer* renderer){
+void drawResetButton(SDL_Renderer* renderer){
     SDL_Surface* reset = SDL_LoadBMP("./data/RESET.bmp");
 
     if (reset)

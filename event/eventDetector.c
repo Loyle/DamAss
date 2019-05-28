@@ -9,6 +9,7 @@
 #include "../board/board.h"
 
 
+
 /*** EVENT FUNCTION ***/
 void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
     int continuer = 1;
@@ -30,7 +31,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                     } else if (fullscreen == 1) {
                         fullscreen = 0;
                         SDL_SetWindowFullscreen(pWindow, 0);
-                        drawChessboard(pWindow, renderer, board);
+                        drawChessboard(renderer, board);
                     }
                 }
                 /*** EVENT Reset Window ***/
@@ -38,8 +39,8 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                     SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
                     SDL_RenderClear(renderer);
                     board = initBoard(8, 80, 80);
-                    drawChessboard(pWindow, renderer, board);
-                    drawResetButton(pWindow, renderer);
+                    drawChessboard(renderer, board);
+                    drawResetButton(renderer);
                 }
                 break;
             case SDL_MOUSEBUTTONUP:
@@ -52,13 +53,14 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
                         SDL_RenderClear(renderer);
                         board = initBoard(8, 80, 80);
-                        drawChessboard(pWindow, renderer, board);
-                        drawResetButton(pWindow, renderer);
+                        drawChessboard(renderer, board);
+                        drawResetButton(renderer);
                     } else if((event.motion.x >= board[0][0].decal) && (event.motion.y >= board[0][0].decal) &&
                               (event.motion.x <= board[0][0].size * 8 + board[0][0].decal) &&
                               (event.motion.y <= board[0][0].size * 8 + board[0][0].decal)) {
                         getPositionOnBoard(&x, &y, board);
-                        drawSprite(pWindow, renderer, x, y, board, 1);
+                        drawSprite(renderer, x, y, board, 1);
+                        checkDameConflict(board,x,y);
 
                     }
                 }
@@ -78,13 +80,14 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         if ((i >= 0) && (j >= 0)) {
                             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
                             //SDL_RenderClear(renderer);
-                            drawChessboard(pWindow, renderer, board);
+                            drawChessboard(renderer, board);
                             //drawResetButton(pWindow,renderer);
                         }
                         i = x;
                         j = y;
-                        drawSprite(pWindow, renderer, x, y, board, 0);
-                        drawHelp(pWindow, renderer, x, y, board);
+                        drawSprite(renderer, x, y, board, 0);
+                        checkDameConflict(board,x,y);
+                        drawHelp(renderer, x, y, board);
                     }
                 }
                 else {
@@ -94,7 +97,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         j = -1;
 
                         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                        drawChessboard(pWindow, renderer, board);
+                        drawChessboard(renderer, board);
                     }
                 }
         }

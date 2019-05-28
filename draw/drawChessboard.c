@@ -7,7 +7,7 @@
 #include "draw.h"
 
 /***DRAW CHESSBOARD***/
-void drawChessboard(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
+void drawChessboard(SDL_Renderer *renderer, Cell **board) {
     SDL_Color colorArray[2] = {{251, 217, 126, 255},
                                {89,  39,  3,   255}};  // beige,brown
 
