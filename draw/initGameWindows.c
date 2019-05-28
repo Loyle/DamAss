@@ -13,4 +13,5 @@ void initGameWindows(SDL_Renderer* renderer, Cell **board) {
 
     drawChessboard(renderer, board);
     drawResetButton(renderer);
+    drawScoreBoard(renderer,8);
 }
