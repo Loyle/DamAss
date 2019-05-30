@@ -8,8 +8,9 @@
 
 /***DRAW CHESSBOARD***/
 void drawChessboard(SDL_Renderer *renderer, Cell **board) {
-    SDL_Color colorArray[2] = {{251, 217, 126, 255},
-                               {89,  39,  3,   255}};  // beige,brown
+    SDL_Color colorArray[3] = {{251, 217, 126, 255},
+                               {89,  39,  3, 255},
+                               {96, 96, 96, 255}};  // beige,brown,grey
 
     for (int x = 0; x < 8; x++) {
         for (int y = 0; y < 8; ++y) {
@@ -37,6 +38,16 @@ void drawChessboard(SDL_Renderer *renderer, Cell **board) {
 
                 SDL_DestroyTexture(dameTexture);
                 SDL_FreeSurface(dameSurface);
+            }
+
+            //help
+
+            if(board[x][y].isEnable == 0){
+                SDL_SetRenderDrawColor(renderer, colorArray[2].r, colorArray[2].g, colorArray[2].b,
+                                       colorArray[2].a);
+                SDL_Rect rect = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
+                SDL_RenderFillRect(renderer, &rect);
+
             }
         }
     }

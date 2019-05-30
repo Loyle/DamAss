@@ -22,11 +22,13 @@ void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) 
             SDL_Texture *sDameRed = SDL_CreateTextureFromSurface(renderer, spriteDameRed);
 
             SDL_Rect dest = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
-            if (((x + y) % 2) && board[x][y].isConflict == 0) {
+            if (((x + y) % 2) && board[x][y].isConflict == 0 && board[x][y].isEnable == 1) {
                 SDL_RenderCopy(renderer, sDameBrown, NULL, &dest);
             } else if(board[x][y].isConflict == 1){
                 SDL_RenderCopy(renderer, sDameRed, NULL, &dest);
-            } else {
+            } else if(board[x][y].hasDame == 1 && board[x][y].isEnable == 0) {
+                SDL_RenderCopy(renderer, sDameRed, NULL, &dest);
+            } else if ( board[x][y].isEnable == 1){
                 SDL_RenderCopy(renderer, sDameBeige, NULL, &dest);
             }
             SDL_RenderPresent(renderer);

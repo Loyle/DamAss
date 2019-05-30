@@ -13,6 +13,7 @@ struct Cell {
     int isConflict;
     int size;
     int decal;
+    int isEnable;
 };
 
 #endif //LP25_CELLSTRUCTURE_H

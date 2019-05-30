@@ -61,7 +61,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         getPositionOnBoard(&x, &y, board);
                         drawSprite(renderer, x, y, board, 1);
                         checkDameConflict(board,x,y);
-
+                        //setPreventSquareHelp(board,x,y); // for max help
                     }
                 }
                 break;
