@@ -16,7 +16,7 @@ void drawSquareHelp(SDL_Renderer* renderer,int x, int y, Cell **board){
         SDL_RenderFillRect(renderer, &rect);
         SDL_RenderPresent(renderer);
     }
-    if(board[x][y].isConflict == 1 /*&& board[x][y].hasDame == 0*/){
+    if(board[x][y].isConflict == 1 && board[x][y].hasDame == 0){
         SDL_Color red = {255,0,0,255};
         SDL_SetRenderDrawColor(renderer, red.r,red.g,red.b,red.a);
         SDL_Rect rect = {x*80+80+35,y*80+80+35,10,10};
