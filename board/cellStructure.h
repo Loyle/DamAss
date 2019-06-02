@@ -9,11 +9,13 @@ typedef struct Cell Cell;
 struct Cell {
     int pixelX;
     int pixelY;
+
     int hasDame;
     int isConflict;
+    int isEnable;
+
     int size;
     int decal;
-    int isEnable;
 };
 
 #endif //LP25_CELLSTRUCTURE_H

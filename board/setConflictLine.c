@@ -13,12 +13,13 @@ void setConflictLine(Cell **board, int xCursor, int yCursor, int xEnd, int yEnd)
         // Horizontale
         if (yCursor < yEnd) {
             // if conflict is on the right
-            for (int i = yCursor; i < yEnd; ++i) {
+            // Use automatic max size
+            for (int i = 0; i <= 7; ++i) {
                 board[xCursor][i].isConflict = 1;
             }
         } else {
             // if conflict is on the left
-            for (int i = yCursor; i > yEnd; --i) {
+            for (int i = 7; i >= 0; --i) {
                 board[xCursor][i].isConflict = 1;
             }
         }
@@ -26,55 +27,57 @@ void setConflictLine(Cell **board, int xCursor, int yCursor, int xEnd, int yEnd)
         // Verticale
         if (xCursor < xEnd) {
             // if conflict is under
-            for (int i = xCursor; i < xEnd; ++i) {
+            for (int i = 0; i <= 7; ++i) {
                 board[i][yCursor].isConflict = 1;
             }
         } else {
             // if conflict is above
-            for (int i = xCursor; i > xEnd; --i) {
+            for (int i = 7; i >= 0; --i) {
                 board[i][yCursor].isConflict = 1;
             }
         }
-    } else if (xCursor < xEnd) {
-        // diago bas droite
-        if (yCursor < yEnd) {
-            saveX = xCursor;
-            saveY = yCursor;
-            while (saveX <= xEnd && saveY <= yEnd) {
-                board[saveX][saveY].isConflict = 1;
-                saveX++;
-                saveY++;
-            }
-        }else if (yCursor > yEnd){
-        // diago haut doite
-            saveX = xCursor;
-            saveY = yCursor;
-            while(saveX <= xEnd && saveY >= yEnd) {
-                board[saveX][saveY].isConflict = 1;
-                saveX++;
-                saveY--;
-            }
+    }
+    else if((xCursor > xEnd && yCursor > yEnd) || (xCursor < xEnd && yCursor < yEnd)) {
+        // Diagonale en bas à droite et en haut à gauche
+        saveX = xCursor;
+        saveY = yCursor;
+
+        while (saveX <= 7 && saveY <= 7) {
+            board[saveX][saveY].isConflict = 1;
+            saveX++;
+            saveY++;
         }
-    } else if ( xCursor > xEnd) {
-        // diago bas gauche
-        if (yCursor < yEnd){
-            saveX = xCursor;
-            saveY = yCursor;
-            while(saveX >= xEnd && saveY <= yEnd) {
-                 board[saveX][saveY].isConflict = 1 ;
-                 saveX--;
-                 saveY++;
-            }
-        }else if ( yCursor > yEnd){
-        // daigo haut gauche
-            saveX = xCursor;
-            saveY = yCursor;
-            while(saveX >= xEnd && saveY >= xEnd) {
-                board[saveX][saveY].isConflict = 1;
-                saveX--;
-                saveY--;
-            }
+
+        saveX = xCursor;
+        saveY = yCursor;
+
+        while (saveX >= 0 && saveY >= 0) {
+            board[saveX][saveY].isConflict = 1;
+            saveX--;
+            saveY--;
         }
+
+    }
+    else if((xCursor < xEnd && yCursor > yEnd) || (xCursor > xEnd && yCursor < yEnd)) {
+        // Dragonale en bas à gauche et en haut à droite
+        saveX = xCursor;
+        saveY = yCursor;
+
+        while (saveX <= 7 && saveY >= 0) {
+            board[saveX][saveY].isConflict = 1;
+            saveX++;
+            saveY--;
+        }
+
+        saveX = xCursor;
+        saveY = yCursor;
+
+        while (saveX >= 0 && saveY <= 7) {
+            board[saveX][saveY].isConflict = 1;
+            saveX--;
+            saveY++;
+        }
+
     }
 }
 

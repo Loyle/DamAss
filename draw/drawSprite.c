@@ -10,11 +10,10 @@
 void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) {
 
     // Draw dame only if there is no dame actually
-    if (board[x][y].hasDame == 0) {
+    if (board[x][y].hasDame == 0 && board[x][y].isEnable) {
         SDL_Surface *spriteDameBeige = SDL_LoadBMP("./data/beige_semi_small.bmp"); /* color = 0*/
         SDL_Surface *spriteDameBrown = SDL_LoadBMP("./data/brun_semi_small.bmp"); /* color = 1*/
         SDL_Surface *spriteDameRed = SDL_LoadBMP("./data/red_semi_small.bmp");
-
 
         if (spriteDameBeige && spriteDameBrown && spriteDameRed) {
             SDL_Texture *sDameBeige = SDL_CreateTextureFromSurface(renderer, spriteDameBeige);
@@ -22,14 +21,20 @@ void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) 
             SDL_Texture *sDameRed = SDL_CreateTextureFromSurface(renderer, spriteDameRed);
 
             SDL_Rect dest = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
-            if (((x + y) % 2) && board[x][y].isConflict == 0 && board[x][y].isEnable == 1) {
-                SDL_RenderCopy(renderer, sDameBrown, NULL, &dest);
-            } else if(board[x][y].isConflict == 1){
-                SDL_RenderCopy(renderer, sDameRed, NULL, &dest);
-            } else if(board[x][y].hasDame == 1 && board[x][y].isEnable == 0) {
-                SDL_RenderCopy(renderer, sDameRed, NULL, &dest);
-            } else if ( board[x][y].isEnable == 1){
-                SDL_RenderCopy(renderer, sDameBeige, NULL, &dest);
+            if(board[x][y].isConflict == 0 &&  board[x][y].isEnable == 1) {
+                // We can draw sprite
+                if((x + y) % 2) {
+                    SDL_RenderCopy(renderer, sDameBrown, NULL, &dest);
+                }
+                else {
+                    SDL_RenderCopy(renderer, sDameBeige, NULL, &dest);
+                }
+            }
+            else {
+                // Conflic or Error
+                if(board[x][y].isConflict == 1 || board[x][y].isEnable == 0) {
+                    SDL_RenderCopy(renderer, sDameRed, NULL, &dest);
+                }
             }
             SDL_RenderPresent(renderer);
             SDL_DestroyTexture(sDameRed);

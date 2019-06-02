@@ -6,11 +6,11 @@
 #include <SDL2/SDL_render.h>
 #include "../board/cellStructure.h"
 
-void setPreventSquareHelp(Cell** board, int x , int y, int isDame){
-/* J'ai pas trouvé de nom plus parlant mais c'est pour
-l'aide max ou le chess devient gris lorsqu'on pose une dame*/
+void setPreventSquareHelp(Cell **board, int x, int y, int isDame) {
+    /* J'ai pas trouvé de nom plus parlant mais c'est pour
+    l'aide max ou le chess devient gris lorsqu'on pose une dame*/
 
-// Horizontal / Vertical
+    // Horizontal / Vertical
     for (int i = 0; i <= 7; i++) {
         board[x][i].isEnable = 0;
         board[i][y].isEnable = 0;
@@ -51,7 +51,6 @@ l'aide max ou le chess devient gris lorsqu'on pose une dame*/
             saveX--;
             saveY++;
         }
-
     }
 }
 
