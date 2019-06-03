@@ -59,9 +59,10 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                               (event.motion.x <= board[0][0].size * 8 + board[0][0].decal) &&
                               (event.motion.y <= board[0][0].size * 8 + board[0][0].decal)) {
                         getPositionOnBoard(&x, &y, board);
-                        drawSprite(renderer, x, y, board, 1);
-                        checkDameConflict(board,x,y);
                         setPreventSquareHelp(board,x,y); // for max help
+                        checkDameConflict(board,x,y);
+                        drawSprite(renderer, x, y, board, 1);
+                        drawChessboard(renderer,board);
                     }
                 }
                 break;
