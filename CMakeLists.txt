@@ -8,5 +8,5 @@ find_package(SDL2 REQUIRED)
 
 include_directories(${SDL2_INCLUDE_DIR})
 
-add_executable(DamAss main.c draw/draw.h draw/drawResetButton.c draw/drawChessboard.c draw/drawSprite.c event/eventDetector.h event/eventDetector.c board/checkDameConflict.c board/cellStructure.h board/initBoard.c board/board.h board/getPositionOnBoard.c draw/drawHelp.c draw/drawSquareHelp.c draw/initGameWindows.c draw/drawScoreBoard.c board/setConflictLine.c draw/setPreventSquareHelp.c)
+add_executable(DamAss main.c draw/draw.h draw/drawResetButton.c draw/drawChessboard.c draw/drawSprite.c event/eventDetector.h event/eventDetector.c board/checkDameConflict.c board/cellStructure.h board/initBoard.c board/board.h board/getPositionOnBoard.c draw/drawHelp.c draw/drawSquareHelp.c draw/initGameWindows.c draw/drawScoreBoard.c board/setConflictLine.c draw/setPreventSquareHelp.c draw/unsetPreventSquareHelp.c)
 target_link_libraries(DamAss ${SDL2_LIBRARY} -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -mwindows)

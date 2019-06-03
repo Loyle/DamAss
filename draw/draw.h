@@ -16,5 +16,6 @@ void drawSquareHelp(SDL_Renderer*,int x, int y, Cell **board);
 void initGameWindows(SDL_Renderer *, Cell **board);
 void drawScoreBoard(SDL_Renderer *renderer, int rest);
 void setPreventSquareHelp(Cell** board,int x , int y);
+void unsetPreventSquareHelp(Cell** board,int x , int y);
 
 #endif //DAMASS_DRAW_H

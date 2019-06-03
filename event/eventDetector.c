@@ -61,7 +61,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         getPositionOnBoard(&x, &y, board);
                         drawSprite(renderer, x, y, board, 1);
                         checkDameConflict(board,x,y);
-                        //setPreventSquareHelp(board,x,y); // for max help
+                        setPreventSquareHelp(board,x,y); // for max help
                     }
                 }
                 break;
@@ -81,7 +81,6 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
                             //SDL_RenderClear(renderer);
                             drawChessboard(renderer, board);
-                            // clear conflict
                             //drawResetButton(pWindow,renderer);
                         }
                         i = x;

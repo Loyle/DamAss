@@ -24,11 +24,11 @@ void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) 
             SDL_Rect dest = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
             if (((x + y) % 2) && board[x][y].isConflict == 0 && board[x][y].isEnable == 1) {
                 SDL_RenderCopy(renderer, sDameBrown, NULL, &dest);
-            } else if(board[x][y].isConflict == 1){
+            } else if(board[x][y].isConflict == 1 && board[x][y].isEnable == 1){
                 SDL_RenderCopy(renderer, sDameRed, NULL, &dest);
             } else if(board[x][y].hasDame == 1 && board[x][y].isEnable == 0) {
-                SDL_RenderCopy(renderer, sDameRed, NULL, &dest);
-            } else if ( board[x][y].isEnable == 1){
+                SDL_RenderCopy(renderer, sDameRed, NULL, &dest); // a mettre en gris
+            } else if (board[x][y].isEnable == 1){
                 SDL_RenderCopy(renderer, sDameBeige, NULL, &dest);
             }
             SDL_RenderPresent(renderer);
@@ -50,5 +50,7 @@ void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) 
     } else if(board[x][y].hasDame == 1 && isDame == 1) {
         // otherwise, we delete the dame
         board[x][y].hasDame = 0;
+        unsetPreventSquareHelp(board ,x, y);
+
     }
 }

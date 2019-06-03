@@ -23,10 +23,13 @@ void drawChessboard(SDL_Renderer *renderer, Cell **board) {
 
             // ReDraw dames
             if (board[x][y].hasDame) {
+
                 SDL_Surface *dameSurface;
-                if ((x + y) % 2) {
+                if ((x + y) % 2 && board[x][y].isEnable == 1) {
                     dameSurface = SDL_LoadBMP("./data/brun_semi_small.bmp");
-                } else {
+                }else if ( board[x][y].isEnable == 0){
+                    dameSurface =  SDL_LoadBMP("./data/red_semi_small.bmp");// gris
+                }else {
                     dameSurface = SDL_LoadBMP("./data/beige_semi_small.bmp");
                 }
 
@@ -40,7 +43,7 @@ void drawChessboard(SDL_Renderer *renderer, Cell **board) {
                 SDL_FreeSurface(dameSurface);
             }
 
-            //help
+            // max help
 
             if(board[x][y].isEnable == 0){
                 SDL_SetRenderDrawColor(renderer, colorArray[2].r, colorArray[2].g, colorArray[2].b,
