@@ -80,13 +80,13 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         if ((i >= 0) && (j >= 0)) {
                             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
                             //SDL_RenderClear(renderer);
+                            checkDameConflict(board,x,y);
                             drawChessboard(renderer, board);
                             //drawResetButton(pWindow,renderer);
                         }
                         i = x;
                         j = y;
                         drawSprite(renderer, x, y, board, 0);
-                        checkDameConflict(board,x,y);
                         drawHelp(renderer, x, y, board);
                     }
                 }
