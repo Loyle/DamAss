@@ -9,7 +9,6 @@
 #include "../board/board.h"
 
 
-
 /*** EVENT FUNCTION ***/
 void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
     int continuer = 1;
@@ -55,14 +54,18 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         board = initBoard(8, 80, 80);
                         drawChessboard(renderer, board);
                         drawResetButton(renderer);
-                    } else if((event.motion.x >= board[0][0].decal) && (event.motion.y >= board[0][0].decal) &&
-                              (event.motion.x <= board[0][0].size * 8 + board[0][0].decal) &&
-                              (event.motion.y <= board[0][0].size * 8 + board[0][0].decal)) {
+                    } else if ((event.motion.x >= board[0][0].decal) && (event.motion.y >= board[0][0].decal) &&
+                               (event.motion.x <= board[0][0].size * 8 + board[0][0].decal) &&
+                               (event.motion.y <= board[0][0].size * 8 + board[0][0].decal)) {
+
                         getPositionOnBoard(&x, &y, board);
-                        setPreventSquareHelp(board,x,y); // for max help
-                        checkDameConflict(board,x,y);
-                        drawSprite(renderer, x, y, board, 1);
-                        drawChessboard(renderer,board);
+
+                        if (board[x][y].isEnable == 1 || (board[x][y].isEnable == 0 && board[x][y].hasDame == 1)) {
+                            drawSprite(renderer, x, y, board, 1);
+                            setPreventSquareHelp(board); // for max help
+                            checkDameConflict(board, x, y);
+                            drawChessboard(renderer, board);
+                        }
                     }
                 }
                 break;
@@ -76,24 +79,46 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                     int y = event.button.y;
                     getPositionOnBoard(&x, &y, board);
 
-                    if (i != x || j != y) {
-                        // clear l'ancienne case (avec seulement si x et y != -1)
-                        if ((i >= 0) && (j >= 0)) {
-                            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                            //SDL_RenderClear(renderer);
-                            checkDameConflict(board,x,y);
+                    if (board[x][y].isEnable == 1) {
+                        if (i != x || j != y) {
+                            // clear l'ancienne case (avec seulement si x et y != -1)
+                            /*if ((i >= 0) && (j >= 0)) {
+                                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                                //SDL_RenderClear(renderer);
+                                drawSprite(renderer, i, j, board, 0);
+                                checkDameConflict(board, x, y);
+                                //drawResetButton(pWindow,renderer);
+                            }
+
+
+                            drawSprite(renderer, x, y, board, 0);
                             drawChessboard(renderer, board);
-                            //drawResetButton(pWindow,renderer);
+                            drawHelp(renderer, x, y, board);*/
+
+                            i = x;
+                            j = y;
+
+                            if (board[x][y].hasDame == 0) {
+                                drawSprite(renderer, x, y, board, 1);
+                                checkDameConflict(board, x, y);
+                                drawChessboard(renderer, board);
+                                drawHelp(renderer, x, y, board);
+                                drawSprite(renderer, x, y, board, 1);
+                            }
                         }
-                        i = x;
-                        j = y;
-                        drawSprite(renderer, x, y, board, 0);
-                        drawHelp(renderer, x, y, board);
+                    } else {
+                        if (board[i][j].isEnable) {
+                            //drawSprite(renderer, i, j, board, 1);
+                            drawChessboard(renderer, board);
+                        }
                     }
-                }
-                else {
+                } else {
                     // We leave or we are out of the chess
-                    if(i >= 0 && j >= 0) {
+                    if (i >= 0 && j >= 0) {
+                        if (board[i][j].hasDame) {
+                            //drawSprite(renderer, i, j, board, 1);
+                        }
+
                         i = -1;
                         j = -1;
 

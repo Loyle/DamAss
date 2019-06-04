@@ -10,9 +10,9 @@
 void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) {
 
     // Draw dame only if there is no dame actually
-    if (board[x][y].hasDame == 0 && board[x][y].isEnable) {
-        SDL_Surface *spriteDameBeige = SDL_LoadBMP("./data/beige_semi_small.bmp"); /* color = 0*/
-        SDL_Surface *spriteDameBrown = SDL_LoadBMP("./data/brun_semi_small.bmp"); /* color = 1*/
+    /*if (board[x][y].hasDame == 0) {
+        SDL_Surface *spriteDameBeige = SDL_LoadBMP("./data/beige_semi_small.bmp");  color = 0
+        SDL_Surface *spriteDameBrown = SDL_LoadBMP("./data/brun_semi_small.bmp");  color = 1
         SDL_Surface *spriteDameRed = SDL_LoadBMP("./data/red_semi_small.bmp");
         SDL_Surface *spriteDameGrey = SDL_LoadBMP("./data/gray_semi_small.bmp");
 
@@ -61,6 +61,13 @@ void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) 
         SDL_FreeSurface(spriteDameGrey);
 
     } else if(board[x][y].hasDame == 1 && isDame == 1) {
+        // otherwise, we delete the dame
+        board[x][y].hasDame = 0;
+    }*/
+    if(board[x][y].hasDame == 0) {
+        board[x][y].hasDame = isDame;
+    }
+    else if(board[x][y].hasDame == 1 && isDame == 1) {
         // otherwise, we delete the dame
         board[x][y].hasDame = 0;
     }

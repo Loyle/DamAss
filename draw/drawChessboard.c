@@ -21,6 +21,7 @@ void drawChessboard(SDL_Renderer *renderer, Cell **board) {
                 SDL_Rect rect = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
                 SDL_RenderFillRect(renderer, &rect);
             } else {
+                // max help
                 //help
                 SDL_SetRenderDrawColor(renderer, colorArray[2].r, colorArray[2].g, colorArray[2].b,
                                        colorArray[2].a);
@@ -41,7 +42,7 @@ void drawChessboard(SDL_Renderer *renderer, Cell **board) {
                     dameSurface = SDL_LoadBMP("./data/red_semi_small.bmp");
                 }
                 else if ((x + y) % 2) {
-                        dameSurface = SDL_LoadBMP("./data/brun_semi_small.bmp");
+                    dameSurface = SDL_LoadBMP("./data/brun_semi_small.bmp");
                 } else {
                     dameSurface = SDL_LoadBMP("./data/beige_semi_small.bmp");
                 }
@@ -54,15 +55,6 @@ void drawChessboard(SDL_Renderer *renderer, Cell **board) {
 
                 SDL_DestroyTexture(dameTexture);
                 SDL_FreeSurface(dameSurface);
-            }
-            // max help
-
-            if(board[x][y].isEnable == 0){
-                SDL_SetRenderDrawColor(renderer, colorArray[2].r, colorArray[2].g, colorArray[2].b,
-                                       colorArray[2].a);
-                SDL_Rect rect = {board[x][y].pixelX, board[x][y].pixelY, board[x][y].size, board[x][y].size};
-                SDL_RenderFillRect(renderer, &rect);
-
             }
         }
     }

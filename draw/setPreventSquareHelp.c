@@ -4,60 +4,60 @@
 
 
 #include <SDL2/SDL_render.h>
+#include "draw.h"
 #include "../board/cellStructure.h"
 
 
-void setPreventSquareHelp(Cell** board, int x , int y){
+void setPreventSquareHelp(Cell **board) {
+    for (int x = 0; x < 8; x++) {
+        for (int y = 0; y < 8; y++) {
+            board[x][y].isEnable = 1;
 
-    int value;
 
-    if (board[x][y].hasDame == 1){
-        value = 1;
-    }else{
-        value = 0;
+            if (board[x][y].hasDame == 1) {
+                for (int i = 0; i <= 7; i++) {
+                    board[x][i].isEnable = 0;
+                    board[i][y].isEnable = 0;
+                }
+                // Diagonal haut-gauche + bas-gauche
+                int saveX;
+                int saveY;
+
+                // Bas droite
+                saveX = x;
+                saveY = y;
+                while (saveX <= 7 && saveY <= 7) {
+                    board[saveX][saveY].isEnable = 0;
+                    saveX++;
+                    saveY++;
+                }
+
+                // Haut droite
+                saveX = x;
+                saveY = y;
+                while (saveX <= 7 && saveY >= 0) {
+                    board[saveX][saveY].isEnable = 0;
+                    saveX++;
+                    saveY--;
+                }
+                // Haut gauche
+                saveX = x;
+                saveY = y;
+                while (saveX >= 0 && saveY >= 0) {
+                    board[saveX][saveY].isEnable = 0;
+                    saveX--;
+                    saveY--;
+                }
+                // Bas gauche
+                saveX = x;
+                saveY = y;
+                while (saveX >= 0 && saveY <= 7) {
+                    board[saveX][saveY].isEnable = 0;
+                    saveX--;
+                    saveY++;
+
+                }
+            }
+        }
     }
-
-    for (int i = 0; i <= 7; i++) {
-        board[x][i].isEnable = value;
-        board[i][y].isEnable = value;
-    }
-    // Diagonal haut-gauche + bas-gauche
-    int saveX;
-    int saveY;
-
-    // Bas droite
-    saveX = x ;
-    saveY = y ;
-    while (saveX <= 7 && saveY <= 7) {
-        board[saveX][saveY].isEnable = value;
-        saveX++;
-        saveY++;
-    }
-
-    // Haut droite
-    saveX = x ;
-    saveY = y ;
-    while (saveX <= 7 && saveY >= 0) {
-        board[saveX][saveY].isEnable = value;
-        saveX++;
-        saveY--;
-    }
-    // Haut gauche
-    saveX = x ;
-    saveY = y ;
-    while (saveX >= 0 && saveY >= 0) {
-        board[saveX][saveY].isEnable = value;
-        saveX--;
-        saveY--;
-    }
-    // Bas gauche
-    saveX = x ;
-    saveY = y ;
-    while (saveX >= 0 && saveY <= 7) {
-        board[saveX][saveY].isEnable = value;
-        saveX--;
-        saveY++;
-
-    }
-
 }
