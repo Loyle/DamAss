@@ -4,16 +4,19 @@
 
 
 #include <SDL2/SDL_render.h>
-#include "draw.h"
-#include "../board/cellStructure.h"
+#include <stdio.h>
+#include "board.h"
+#include "cellStructure.h"
 
 
 void setPreventSquareHelp(Cell **board) {
     for (int x = 0; x < 8; x++) {
         for (int y = 0; y < 8; y++) {
             board[x][y].isEnable = 1;
-
-
+        }
+    }
+    for (int x = 0; x < 8; x++) {
+        for (int y = 0; y < 8; y++) {
             if (board[x][y].hasDame == 1) {
                 for (int i = 0; i <= 7; i++) {
                     board[x][i].isEnable = 0;
@@ -58,6 +61,7 @@ void setPreventSquareHelp(Cell **board) {
 
                 }
             }
+
         }
     }
 }

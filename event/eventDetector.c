@@ -63,7 +63,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         if (board[x][y].isEnable == 1 || (board[x][y].isEnable == 0 && board[x][y].hasDame == 1)) {
 
                             // On enlève la dame
-                            drawSprite(renderer, x, y, board, 1);
+                            setCellSprite(x, y, board);
 
                             // On recalcul l'effet des dames présentes
                             setPreventSquareHelp(board); // for max help
@@ -87,21 +87,21 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
 
                     getPositionOnBoard(&x, &y, board);
 
-                    if(x != i || j != y) {
+                    if (x != i || j != y) {
 
                         if (board[x][y].isEnable == 1) {
                             if (board[x][y].hasDame == 0) {
                                 i = x;
                                 j = y;
 
-                                drawSprite(renderer, x, y, board, 1);
+                                setCellSprite(x, y, board);
                                 checkDameConflict(board, x, y);
                                 drawChessboard(renderer, board);
                                 drawHelp(renderer, x, y, board);
-                                drawSprite(renderer, x, y, board, 1);
+                                setCellSprite(x, y, board);
                             }
                         } else {
-                            if(i >= 0 && j >= 0) {
+                            if (i >= 0 && j >= 0) {
                                 if (board[i][j].isEnable) {
                                     drawChessboard(renderer, board);
 

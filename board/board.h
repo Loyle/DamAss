@@ -19,5 +19,7 @@ Cell **initBoard(int size, int cellSize, int decal);
 void getPositionOnBoard(int *x , int *y, Cell** board);
 void checkDameConflict(Cell** board, int x , int y);
 void setConflictLine(Cell** board ,int xCursor, int yCursor, int xEnd , int yEnd);
+void setCellSprite(int x,int y,Cell** board);
+void setPreventSquareHelp(Cell** board);
 
 #endif //LP25_BOARD_H
