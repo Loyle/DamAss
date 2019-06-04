@@ -11,6 +11,7 @@ void drawSquareHelp(SDL_Renderer* renderer,int x, int y, Board *board){
 
     // We don't want to draw on a Dame
     if(board->cells[x][y].hasDame == 0 && board->cells[x][y].isEnable == 1) {
+    //if(board->cells[x][y].isEnable == 1) {
         SDL_Color green = {0,183,0,255};
         SDL_SetRenderDrawColor(renderer, green.r,green.g,green.b,green.a);
         SDL_Rect rect = {x*board->cells[0][0].size+board->xDecal+(board->cells[0][0].size-sizeSmallSquare)/2,

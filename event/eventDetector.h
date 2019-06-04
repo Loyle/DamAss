@@ -8,5 +8,5 @@
 #include <SDL2/SDL.h>
 #include "../board/board.h"
 
-void eventDetector(SDL_Window*,SDL_Renderer*,Board* );
+void eventDetector(SDL_Window*,SDL_Renderer*,Board* board, int level);
 #endif //DAMASS_EVENTDETECTOR_H

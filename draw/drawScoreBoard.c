@@ -9,8 +9,24 @@
 
 void drawScoreBoard(SDL_Renderer *renderer, int rest) {
     TTF_Init();
-    /*if(TTF_Init() == -1)
-    {
-        fprintf(stderr, "Erreur d'initialisation de TTF_Init : %s\n", TTF_GetError());
-    }*/
+    TTF_Font *xlFont = TTF_OpenFont("./data/font/RobotoCondensedLight.ttf", 200);
+
+    SDL_Color blackPen = {0, 0, 0};
+    // A CHANGER AVEC CONCATENATION
+    SDL_Surface *textSurface = TTF_RenderText_Solid(xlFont, "Dame(s) restante(s) : 8", blackPen);
+
+    SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+    SDL_Rect pos = {750,100,200,25};
+
+
+    SDL_RenderCopy(renderer, text, NULL, &pos);
+
+    SDL_FreeSurface(textSurface);
+    SDL_DestroyTexture(text);
+
+    TTF_CloseFont(xlFont);
+    TTF_Quit();
+
+    SDL_RenderPresent(renderer);
 }

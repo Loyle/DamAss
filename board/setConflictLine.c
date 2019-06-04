@@ -20,7 +20,7 @@ void setConflictLine(Board *board, int xCursor, int yCursor, int xEnd, int yEnd)
             }
         } else {
             // if conflict is on the left
-            for (int i = board->size; i > 0; --i) {
+            for (int i = board->size - 1; i > 0; --i) {
                 board->cells[xCursor][i].isConflict = 1;
             }
         }
@@ -33,7 +33,7 @@ void setConflictLine(Board *board, int xCursor, int yCursor, int xEnd, int yEnd)
             }
         } else {
             // if conflict is above
-            for (int i = board->size; i > 0; --i) {
+            for (int i = board->size - 1; i > 0; --i) {
                 board->cells[i][yCursor].isConflict = 1;
             }
         }

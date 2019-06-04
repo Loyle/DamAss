@@ -11,7 +11,7 @@
 
 
 /*** EVENT FUNCTION ***/
-void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board) {
+void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, int level) {
     int continuer = 1;
     int fullscreen = 0;
     SDL_Event event;
@@ -28,19 +28,22 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board) {
                     if (fullscreen == 0) {
                         fullscreen = 1;
                         SDL_SetWindowFullscreen(pWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
+
+                        initGameWindows(renderer, board);
                     } else if (fullscreen == 1) {
                         fullscreen = 0;
                         SDL_SetWindowFullscreen(pWindow, 0);
-                        drawChessboard(renderer, board);
+
+                        initGameWindows(renderer, board);
                     }
                 }
                 /*** EVENT Reset Window ***/
                 if (event.key.keysym.sym == SDLK_r) {
                     SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
                     SDL_RenderClear(renderer);
-                    board = initBoard(8, 80, 80);
-                    drawChessboard(renderer, board);
-                    drawResetButton(renderer);
+                    board = initBoard(board->size, board->cells[0][0].size, board->xDecal);
+
+                    initGameWindows(renderer, board);
                 }
                 break;
             case SDL_MOUSEBUTTONUP:
@@ -52,29 +55,43 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board) {
                         /*** EVENT Reset Window ***/
                         SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
                         SDL_RenderClear(renderer);
-                        board = initBoard(8, 80, 80);
-                        drawChessboard(renderer, board);
-                        drawResetButton(renderer);
+                        board = initBoard(board->size, board->cells[0][0].size, board->xDecal);
+
+                        initGameWindows(renderer, board);
                     } else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
                                (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal &&
-                               (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal ))){
+                                (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal))) {
 
                         getPositionOnBoard(&x, &y, board);
 
                         if (board->cells[x][y].isEnable == 1 || (board->cells[x][y].isEnable == 0 &&
-                            board->cells[x][y].hasDame == 1)) {
+                                                                 board->cells[x][y].hasDame == 1)) {
 
-                            // On enlève la dame
+                            // On enlève la dame ou ajoute la dame
                             setCellSprite(x, y, board);
 
-                            // On recalcul l'effet des dames présentes
-                            setPreventSquareHelp(board); // for max help
+                            // On recalcule l'effet des dames présentes
+                            // Uniquement si le niveau est à 0
+                            if(level <= 0) {
+                                setPreventSquareHelp(board); // for max help
+                            }
 
-
-                            //checkDameConflict(board, x, y);
-                            drawChessboard(renderer, board);
+                            if(board->cells[x][y].hasDame == 0) {
+                                if(level <= 1) {
+                                    checkDameConflict(board,x,y);
+                                }
+                                setCellSprite(x, y, board);
+                                drawChessboard(renderer, board);
+                                if(level <= 2) {
+                                    drawHelp(renderer,x,y,board);
+                                }
+                                setCellSprite(x, y, board);
+                            }
+                            else {
+                                drawChessboard(renderer,board);
+                            }
                         }
-                        }
+                    }
                 }
 
                 break;
@@ -82,8 +99,8 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board) {
             case SDL_MOUSEMOTION:
                 /*** EVENT mouse motion***/
                 if ((event.motion.x >= board->xDecal) && (event.motion.y >= board->yDecal) &&
-                    (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal ) &&
-                    (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal )) {
+                    (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal) &&
+                    (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal)) {
                     int x = event.motion.x;
                     int y = event.button.y;
 
@@ -98,10 +115,22 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board) {
                                 j = y;
 
                                 setCellSprite(x, y, board);
-                                checkDameConflict(board, x, y);
+                                // Level 1 and under
+                                if(level <= 1) {
+                                    checkDameConflict(board, x, y);
+                                }
                                 drawChessboard(renderer, board);
-                                drawHelp(renderer, x, y, board);
+                                // Level 2 and under
+                                if(level <= 2) {
+                                    drawHelp(renderer, x, y, board);
+                                }
                                 setCellSprite(x, y, board);
+                            }
+                            else {
+                                drawChessboard(renderer, board);
+
+                                i = x;
+                                j = y;
                             }
                         } else {
                             if (i >= 0 && j >= 0) {
