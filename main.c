@@ -7,10 +7,6 @@
 #include "draw/draw.h"
 #include "board/board.h"
 
-
-//void checkDamePosition(int[][8], int, int);
-
-
 int main(int argc, char **argv) {
     fflush(stdout);
 
@@ -27,7 +23,7 @@ int main(int argc, char **argv) {
                                SDL_SWSURFACE); // SDL_WINDOW_RESIZABLE pour pouvoir changer taille window
     SDL_Renderer *renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
 
-    Cell **board = initBoard(8, 80, 80);
+    Board *board = initBoard(8, 80, 80);
 
     initGameWindows(renderer,board);
     eventDetector(pWindow, renderer, board);

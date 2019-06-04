@@ -4,16 +4,17 @@
 
 
 #include "cellStructure.h"
+#include "board.h"
 
-void getPositionOnBoard(int *x , int *y, Cell** board){
+void getPositionOnBoard(int *x , int *y, Board* board){
 
-    *x = (*x-board[0][0].decal)/(board[0][0].size);
-    *y = (*y-board[0][0].decal)/(board[0][0].size);
+    *x = (*x-board->xDecal)/(board->cells[0][0].size);
+    *y = (*y-board->yDecal)/(board->cells[0][0].size);
 
-    if(*x >= 8) {
-        *x = 7;
+    if(*x >= board->size) {
+        *x = board->size-1;
     }
-    if(*y >= 8) {
-        *y = 7;
+    if(*y >= board->size) {
+        *y = board->size-1;
     }
 }

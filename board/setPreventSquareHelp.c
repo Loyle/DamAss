@@ -9,18 +9,18 @@
 #include "cellStructure.h"
 
 
-void setPreventSquareHelp(Cell **board) {
-    for (int x = 0; x < 8; x++) {
-        for (int y = 0; y < 8; y++) {
-            board[x][y].isEnable = 1;
+void setPreventSquareHelp(Board *board) {
+    for (int x = 0; x < board->size; x++) {
+        for (int y = 0; y < board->size; y++) {
+            board->cells[x][y].isEnable = 1;
         }
     }
-    for (int x = 0; x < 8; x++) {
-        for (int y = 0; y < 8; y++) {
-            if (board[x][y].hasDame == 1) {
-                for (int i = 0; i <= 7; i++) {
-                    board[x][i].isEnable = 0;
-                    board[i][y].isEnable = 0;
+    for (int x = 0; x < board->size; x++) {
+        for (int y = 0; y < board->size; y++) {
+            if (board->cells[x][y].hasDame == 1) {
+                for (int i = 0; i < board->size; i++) {
+                    board->cells[x][i].isEnable = 0;
+                    board->cells[i][y].isEnable = 0;
                 }
                 // Diagonal haut-gauche + bas-gauche
                 int saveX;
@@ -29,8 +29,8 @@ void setPreventSquareHelp(Cell **board) {
                 // Bas droite
                 saveX = x;
                 saveY = y;
-                while (saveX <= 7 && saveY <= 7) {
-                    board[saveX][saveY].isEnable = 0;
+                while (saveX < board->size && saveY < board->size) {
+                    board->cells[saveX][saveY].isEnable = 0;
                     saveX++;
                     saveY++;
                 }
@@ -38,8 +38,8 @@ void setPreventSquareHelp(Cell **board) {
                 // Haut droite
                 saveX = x;
                 saveY = y;
-                while (saveX <= 7 && saveY >= 0) {
-                    board[saveX][saveY].isEnable = 0;
+                while (saveX < board->size && saveY >= 0) {
+                    board->cells[saveX][saveY].isEnable = 0;
                     saveX++;
                     saveY--;
                 }
@@ -47,15 +47,15 @@ void setPreventSquareHelp(Cell **board) {
                 saveX = x;
                 saveY = y;
                 while (saveX >= 0 && saveY >= 0) {
-                    board[saveX][saveY].isEnable = 0;
+                    board->cells[saveX][saveY].isEnable = 0;
                     saveX--;
                     saveY--;
                 }
                 // Bas gauche
                 saveX = x;
                 saveY = y;
-                while (saveX >= 0 && saveY <= 7) {
-                    board[saveX][saveY].isEnable = 0;
+                while (saveX >= 0 && saveY < board->size) {
+                    board->cells[saveX][saveY].isEnable = 0;
                     saveX--;
                     saveY++;
 

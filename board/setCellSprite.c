@@ -7,12 +7,12 @@
 #include "board.h"
 
 /*** INVERT HASDAME STATUS ***/
-void setCellSprite(int x, int y, Cell **board) {
-    if(board[x][y].hasDame == 0) {
-        board[x][y].hasDame = 1;
+void setCellSprite(int x, int y, Board *board) {
+    if(board->cells[x][y].hasDame == 0) {
+        board->cells[x][y].hasDame = 1;
     }
-    else if(board[x][y].hasDame == 1) {
+    else if(board->cells[x][y].hasDame == 1) {
         // otherwise, we delete the dame
-        board[x][y].hasDame = 0;
+        board->cells[x][y].hasDame = 0;
     }
 }
