@@ -35,9 +35,9 @@ void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) 
             }
             else {
                 // Conflic or Error
-                if(board[x][y].isConflict == 1 ) {
+                if( board[x][y].isConflict == 1 ) {
                     SDL_RenderCopy(renderer, sDameRed, NULL, &dest);
-                }else if(board[x][y].isEnable == 0){
+                }else if( board[x][y].isEnable == 0 ){
                     SDL_RenderCopy(renderer, sDameGrey, NULL, &dest);
                 }
             }
@@ -63,7 +63,5 @@ void drawSprite(SDL_Renderer *renderer, int x, int y, Cell **board, int isDame) 
     } else if(board[x][y].hasDame == 1 && isDame == 1) {
         // otherwise, we delete the dame
         board[x][y].hasDame = 0;
-        setPreventSquareHelp(board, x, y);
-
     }
 }
