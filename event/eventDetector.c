@@ -7,10 +7,11 @@
 #include "eventDetector.h"
 #include "../draw/draw.h"
 #include "../board/board.h"
+#include "../board/cellStructure.h"
 
 
 /*** EVENT FUNCTION ***/
-void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
+void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board) {
     int continuer = 1;
     int fullscreen = 0;
     SDL_Event event;
@@ -54,13 +55,14 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                         board = initBoard(8, 80, 80);
                         drawChessboard(renderer, board);
                         drawResetButton(renderer);
-                    } else if ((event.motion.x >= board[0][0].decal) && (event.motion.y >= board[0][0].decal) &&
-                               (event.motion.x <= board[0][0].size * 8 + board[0][0].decal) &&
-                               (event.motion.y <= board[0][0].size * 8 + board[0][0].decal)) {
+                    } else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
+                               (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal &&
+                               (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal ))){
 
                         getPositionOnBoard(&x, &y, board);
 
-                        if (board[x][y].isEnable == 1 || (board[x][y].isEnable == 0 && board[x][y].hasDame == 1)) {
+                        if (board->cells[x][y].isEnable == 1 || (board->cells[x][y].isEnable == 0 &&
+                            board->cells[x][y].hasDame == 1)) {
 
                             // On enlève la dame
                             setCellSprite(x, y, board);
@@ -72,15 +74,16 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                             //checkDameConflict(board, x, y);
                             drawChessboard(renderer, board);
                         }
-                    }
+                        }
                 }
+
                 break;
 
             case SDL_MOUSEMOTION:
                 /*** EVENT mouse motion***/
-                if ((event.motion.x >= board[0][0].decal) && (event.motion.y >= board[0][0].decal) &&
-                    (event.motion.x <= board[0][0].size * 8 + board[0][0].decal) &&
-                    (event.motion.y <= board[0][0].size * 8 + board[0][0].decal)) {
+                if ((event.motion.x >= board->xDecal) && (event.motion.y >= board->yDecal) &&
+                    (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal ) &&
+                    (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal )) {
                     int x = event.motion.x;
                     int y = event.button.y;
 
@@ -89,8 +92,8 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
 
                     if (x != i || j != y) {
 
-                        if (board[x][y].isEnable == 1) {
-                            if (board[x][y].hasDame == 0) {
+                        if (board->cells[x][y].isEnable == 1) {
+                            if (board->cells[x][y].hasDame == 0) {
                                 i = x;
                                 j = y;
 
@@ -102,7 +105,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Cell **board) {
                             }
                         } else {
                             if (i >= 0 && j >= 0) {
-                                if (board[i][j].isEnable) {
+                                if (board->cells[i][j].isEnable) {
                                     drawChessboard(renderer, board);
 
                                     i = x;

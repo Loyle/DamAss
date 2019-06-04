@@ -15,11 +15,11 @@ struct Board {
     int yDecal;
 };
 
-Cell **initBoard(int size, int cellSize, int decal);
-void getPositionOnBoard(int *x , int *y, Cell** board);
-void checkDameConflict(Cell** board, int x , int y);
-void setConflictLine(Cell** board ,int xCursor, int yCursor, int xEnd , int yEnd);
-void setCellSprite(int x,int y,Cell** board);
-void setPreventSquareHelp(Cell** board);
+Board *initBoard(int size, int cellSize, int decal);
+void getPositionOnBoard(int *x , int *y, Board* board);
+void checkDameConflict(Board* board, int x , int y);
+void setConflictLine(Board* board ,int xCursor, int yCursor, int xEnd , int yEnd);
+void setCellSprite(int x,int y,Board* board);
+void setPreventSquareHelp(Board* board);
 
 #endif //LP25_BOARD_H

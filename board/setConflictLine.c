@@ -3,8 +3,9 @@
 //
 
 #include "board.h"
+#include "cellStructure.h"
 
-void setConflictLine(Cell **board, int xCursor, int yCursor, int xEnd, int yEnd) {
+void setConflictLine(Board *board, int xCursor, int yCursor, int xEnd, int yEnd) {
 // End correspond to queen which is in conflict with the cursor Queen
     int saveX ;
     int saveY ;
@@ -14,26 +15,26 @@ void setConflictLine(Cell **board, int xCursor, int yCursor, int xEnd, int yEnd)
         if (yCursor < yEnd) {
             // if conflict is on the right
             // Use automatic max size
-            for (int i = 0; i <= 7; ++i) {
-                board[xCursor][i].isConflict = 1;
+            for (int i = 0; i < board->size; ++i) {
+                board->cells[xCursor][i].isConflict = 1;
             }
         } else {
             // if conflict is on the left
-            for (int i = 7; i >= 0; --i) {
-                board[xCursor][i].isConflict = 1;
+            for (int i = board->size; i > 0; --i) {
+                board->cells[xCursor][i].isConflict = 1;
             }
         }
     } else if (yCursor == yEnd) {
         // Verticale
         if (xCursor < xEnd) {
             // if conflict is under
-            for (int i = 0; i <= 7; ++i) {
-                board[i][yCursor].isConflict = 1;
+            for (int i = 0; i < board->size; ++i) {
+                board->cells[i][yCursor].isConflict = 1;
             }
         } else {
             // if conflict is above
-            for (int i = 7; i >= 0; --i) {
-                board[i][yCursor].isConflict = 1;
+            for (int i = board->size; i > 0; --i) {
+                board->cells[i][yCursor].isConflict = 1;
             }
         }
     }
@@ -42,8 +43,8 @@ void setConflictLine(Cell **board, int xCursor, int yCursor, int xEnd, int yEnd)
         saveX = xCursor;
         saveY = yCursor;
 
-        while (saveX <= 7 && saveY <= 7) {
-            board[saveX][saveY].isConflict = 1;
+        while (saveX < board->size && saveY < board->size) {
+            board->cells[saveX][saveY].isConflict = 1;
             saveX++;
             saveY++;
         }
@@ -52,7 +53,7 @@ void setConflictLine(Cell **board, int xCursor, int yCursor, int xEnd, int yEnd)
         saveY = yCursor;
 
         while (saveX >= 0 && saveY >= 0) {
-            board[saveX][saveY].isConflict = 1;
+            board->cells[saveX][saveY].isConflict = 1;
             saveX--;
             saveY--;
         }
@@ -63,8 +64,8 @@ void setConflictLine(Cell **board, int xCursor, int yCursor, int xEnd, int yEnd)
         saveX = xCursor;
         saveY = yCursor;
 
-        while (saveX <= 7 && saveY >= 0) {
-            board[saveX][saveY].isConflict = 1;
+        while (saveX < board->size && saveY >= 0) {
+            board->cells[saveX][saveY].isConflict = 1;
             saveX++;
             saveY--;
         }
@@ -72,8 +73,8 @@ void setConflictLine(Cell **board, int xCursor, int yCursor, int xEnd, int yEnd)
         saveX = xCursor;
         saveY = yCursor;
 
-        while (saveX >= 0 && saveY <= 7) {
-            board[saveX][saveY].isConflict = 1;
+        while (saveX >= 0 && saveY < board->size) {
+            board->cells[saveX][saveY].isConflict = 1;
             saveX--;
             saveY++;
         }

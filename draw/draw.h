@@ -6,13 +6,14 @@
 #define DAMASS_DRAW_H
 
 #include <SDL2/SDL.h>
+#include "../board/board.h"
 #include "../board/cellStructure.h"
 
 void drawResetButton(SDL_Renderer*);
-void drawChessboard(SDL_Renderer*,Cell **board);
-void drawHelp(SDL_Renderer*,int x, int y, Cell **board);
-void drawSquareHelp(SDL_Renderer*,int x, int y, Cell **board);
-void initGameWindows(SDL_Renderer *, Cell **board);
+void drawChessboard(SDL_Renderer*,Board *board);
+void drawHelp(SDL_Renderer*,int x, int y, Board *board);
+void drawSquareHelp(SDL_Renderer*,int x, int y, Board *board);
+void initGameWindows(SDL_Renderer *, Board *board);
 void drawScoreBoard(SDL_Renderer *renderer, int rest);
 
 

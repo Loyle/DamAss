@@ -15,7 +15,6 @@ struct Cell {
     int isEnable;
 
     int size;
-    int decal;
 };
 
 #endif //LP25_CELLSTRUCTURE_H
