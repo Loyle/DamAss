@@ -16,5 +16,7 @@ void drawSquareHelp(SDL_Renderer*,int x, int y, Board *board);
 void initGameWindows(SDL_Renderer *, Board *board);
 void drawScoreBoard(SDL_Renderer *renderer, int rest);
 
+int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level, int* nbDame);
+
 
 #endif //DAMASS_DRAW_H

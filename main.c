@@ -23,13 +23,18 @@ int main(int argc, char **argv) {
                                SDL_SWSURFACE); // SDL_WINDOW_RESIZABLE pour pouvoir changer taille window
     SDL_Renderer *renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
 
+    int level = 0;
+    int nbDame = 8;
 
-    int level = 1;
+    if(!initHome(pWindow,renderer,&level,&nbDame)){
+        return 0;
+    }
 
-    Board *board = initBoard(8, 80, 80);
+    Board *board = initBoard(nbDame, 80, 80);
     //resolver(board);
+
     initGameWindows(renderer,board);
-    eventDetector(pWindow, renderer, board, level);
+    eventDetector(pWindow, renderer, board, &level);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(pWindow);
 
