@@ -11,7 +11,7 @@
 
 
 /*** EVENT FUNCTION ***/
-void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, int level) {
+void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, int* level) {
     int continuer = 1;
     int fullscreen = 0;
     SDL_Event event;
@@ -51,47 +51,49 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                 if (event.button.button == SDL_BUTTON_LEFT) {
                     int x = event.button.x;
                     int y = event.button.y;
-                    if ((x >= 814) && (x <= 910) && (y >= 685) && (y <= 720)) {
-                        /*** EVENT Reset Window ***/
-                        SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
-                        SDL_RenderClear(renderer);
-                        board = initBoard(board->size, board->cells[0][0].size, board->xDecal);
 
-                        initGameWindows(renderer, board);
-                    } else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
-                               (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal &&
-                                (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal))) {
+                        /*** EVENT IN GAME ***/
+                        if ((x >= 814) && (x <= 910) && (y >= 685) && (y <= 720)) {
+                            /*** EVENT Reset Window ***/
+                            SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
+                            SDL_RenderClear(renderer);
+                            board = initBoard(board->size, board->cells[0][0].size, board->xDecal);
 
-                        getPositionOnBoard(&x, &y, board);
+                            initGameWindows(renderer, board);
+                        } else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
+                                   (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal &&
+                                    (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal))) {
 
-                        if (board->cells[x][y].isEnable == 1 || (board->cells[x][y].isEnable == 0 &&
-                                                                 board->cells[x][y].hasDame == 1)) {
+                            getPositionOnBoard(&x, &y, board);
 
-                            // On enlève la dame ou ajoute la dame
-                            setCellSprite(x, y, board);
+                            if (board->cells[x][y].isEnable == 1 || (board->cells[x][y].isEnable == 0 &&
+                                                                     board->cells[x][y].hasDame == 1)) {
 
-                            // On recalcule l'effet des dames présentes
-                            // Uniquement si le niveau est à 0
-                            if(level <= 0) {
-                                setPreventSquareHelp(board); // for max help
-                            }
-
-                            if(board->cells[x][y].hasDame == 0) {
-                                if(level <= 1) {
-                                    checkDameConflict(board,x,y);
-                                }
+                                // On enlève la dame ou ajoute la dame
                                 setCellSprite(x, y, board);
-                                drawChessboard(renderer, board);
-                                if(level <= 2) {
-                                    drawHelp(renderer,x,y,board);
+
+                                // On recalcule l'effet des dames présentes
+                                // Uniquement si le niveau est à 0
+                                if (*level <= 0) {
+                                    setPreventSquareHelp(board); // for max help
                                 }
-                                setCellSprite(x, y, board);
-                            }
-                            else {
-                                drawChessboard(renderer,board);
+
+                                if (board->cells[x][y].hasDame == 0) {
+                                    if (*level <= 1) {
+                                        checkDameConflict(board, x, y);
+                                    }
+                                    setCellSprite(x, y, board);
+                                    drawChessboard(renderer, board);
+                                    if (*level <= 2) {
+                                        drawHelp(renderer, x, y, board);
+                                    }
+                                    setCellSprite(x, y, board);
+                                } else {
+                                    drawChessboard(renderer, board);
+                                }
                             }
                         }
-                    }
+
                 }
 
                 break;
@@ -116,17 +118,16 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
 
                                 setCellSprite(x, y, board);
                                 // Level 1 and under
-                                if(level <= 1) {
+                                if (*level <= 1) {
                                     checkDameConflict(board, x, y);
                                 }
                                 drawChessboard(renderer, board);
                                 // Level 2 and under
-                                if(level <= 2) {
+                                if (*level <= 2) {
                                     drawHelp(renderer, x, y, board);
                                 }
                                 setCellSprite(x, y, board);
-                            }
-                            else {
+                            } else {
                                 drawChessboard(renderer, board);
 
                                 i = x;
@@ -153,6 +154,8 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                         drawChessboard(renderer, board);
                     }
                 }
+
+
         }
     }
 }
