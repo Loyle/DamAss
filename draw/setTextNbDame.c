@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include "draw.h"
 
-void setTextNbDame(SDL_Window* pWindow,SDL_Renderer* renderer,int* level, int* nbDame){
+void setTextNbDame(SDL_Renderer* renderer,int* nbDame){
 
     SDL_Rect pos = {772,465,50,75};
     SDL_Color white = {255,255,255,255};

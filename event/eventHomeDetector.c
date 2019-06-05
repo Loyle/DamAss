@@ -56,7 +56,7 @@ int eventHomeDetector(SDL_Window* pWindow, SDL_Renderer *renderer, int* level,in
                     }else if ((x >= 862) && (x <= 918) && (y >= 445) && (y <= 490)){
                         /*** PLUS ***/
                         *nbDame = *nbDame + 1;
-                        setTextNbDame(pWindow,renderer,level,nbDame);
+                        setTextNbDame(renderer,nbDame);
                     }else if ((x >= 862) && (x <= 918) && (y >= 514) && (y <= 560)){
                         /*** MOINS ***/
                         if (*nbDame>0){
@@ -64,7 +64,7 @@ int eventHomeDetector(SDL_Window* pWindow, SDL_Renderer *renderer, int* level,in
                         }else if(*nbDame<=0){
                             *nbDame = 0;
                         }
-                        setTextNbDame(pWindow,renderer,level,nbDame);
+                        setTextNbDame(renderer,nbDame);
                     }
                 }
         }

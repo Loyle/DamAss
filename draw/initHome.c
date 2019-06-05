@@ -24,7 +24,7 @@ int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level,int *nbDame)
     {
         fprintf(stdout,"Échec de chargement du sprite (%s)\n",SDL_GetError());
     }
-    setTextNbDame(pWindow,renderer,level,nbDame);
+    setTextNbDame(renderer,nbDame);
     return eventHomeDetector(pWindow,renderer,level,nbDame);
 
 }

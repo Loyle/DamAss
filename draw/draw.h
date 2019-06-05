@@ -18,7 +18,7 @@ void drawScoreBoard(SDL_Renderer *renderer, int rest);
 
 int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level, int* nbDame);
 
-void setTextNbDame(SDL_Window *pWindow,SDL_Renderer* renderer,int* level, int* nbDame);
+void setTextNbDame(SDL_Renderer* renderer, int* nbDame);
 
 
 #endif //DAMASS_DRAW_H
