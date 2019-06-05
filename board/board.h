@@ -21,5 +21,6 @@ void checkDameConflict(Board* board, int x , int y);
 void setConflictLine(Board* board ,int xCursor, int yCursor, int xEnd , int yEnd);
 void setCellSprite(int x,int y,Board* board);
 void setPreventSquareHelp(Board* board);
+void resolver(Board *board);
 
 #endif //LP25_BOARD_H

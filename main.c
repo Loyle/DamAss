@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     int level = 1;
 
     Board *board = initBoard(8, 80, 80);
-
+    //resolver(board);
     initGameWindows(renderer,board);
     eventDetector(pWindow, renderer, board, level);
     SDL_DestroyRenderer(renderer);
