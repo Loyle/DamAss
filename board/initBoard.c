@@ -26,6 +26,7 @@ Board* initBoard(int size, int cellSize ,int decal) {
     Board* board = malloc(sizeof(Board));
     board->cells = cells;
     board->size = size;
+    board->nbDame = size;
     board->xDecal = decal;
     board->yDecal = decal;
 

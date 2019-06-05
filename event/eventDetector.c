@@ -70,7 +70,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                                                      board->cells[x][y].hasDame == 1)) {
 
                                 // On enlève la dame ou ajoute la dame
-                                setCellSprite(x, y, board);
+                                setCellSprite(renderer,x, y, board);
 
                                 // On recalcule l'effet des dames présentes
                                 // Uniquement si le niveau est à 0
@@ -82,12 +82,12 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                     if (*level <= 1) {
                                         checkDameConflict(board, x, y);
                                     }
-                                    setCellSprite(x, y, board);
+                                    setCellSprite(renderer,x, y, board);
                                     drawChessboard(renderer, board);
                                     if (*level <= 2) {
                                         drawHelp(renderer, x, y, board);
                                     }
-                                    setCellSprite(x, y, board);
+                                    setCellSprite(renderer,x, y, board);
                                 } else {
                                     drawChessboard(renderer, board);
                                 }
@@ -116,7 +116,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                 i = x;
                                 j = y;
 
-                                setCellSprite(x, y, board);
+                                setCellSprite(renderer,x, y, board);
                                 // Level 1 and under
                                 if (*level <= 1) {
                                     checkDameConflict(board, x, y);
@@ -126,7 +126,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                 if (*level <= 2) {
                                     drawHelp(renderer, x, y, board);
                                 }
-                                setCellSprite(x, y, board);
+                                setCellSprite(renderer,x, y, board);
                             } else {
                                 drawChessboard(renderer, board);
 
