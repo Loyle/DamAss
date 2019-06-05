@@ -3,8 +3,10 @@
 //
 
 #include <SDL2/SDL.h>
-#include "draw.h"
 #include <stdio.h>
+#include <SDL2/SDL_ttf.h>
+
+#include "draw.h"
 #include "../event/eventDetector.h"
 
 int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level,int *nbDame){
@@ -22,7 +24,7 @@ int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level,int *nbDame)
     {
         fprintf(stdout,"Échec de chargement du sprite (%s)\n",SDL_GetError());
     }
-
+    setTextNbDame(pWindow,renderer,level,nbDame);
     return eventHomeDetector(pWindow,renderer,level,nbDame);
 
 }
