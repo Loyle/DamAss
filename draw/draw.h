@@ -10,6 +10,7 @@
 #include "../board/cellStructure.h"
 
 void drawResetButton(SDL_Renderer*);
+void drawMenuButton(SDL_Renderer* renderer);
 void drawChessboard(SDL_Renderer*,Board *board);
 void drawHelp(SDL_Renderer*,int x, int y, Board *board);
 void drawSquareHelp(SDL_Renderer*,int x, int y, Board *board);

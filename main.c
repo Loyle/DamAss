@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     //resolver(board);
 
     initGameWindows(renderer,board);
-    eventDetector(pWindow, renderer, board, &level);
+    eventDetector(pWindow, renderer, board, &level,&nbDame);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(pWindow);
 

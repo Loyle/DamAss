@@ -11,7 +11,7 @@
 
 
 /*** EVENT FUNCTION ***/
-void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, int* level) {
+void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, int* level, int* nbDame) {
     int continuer = 1;
     int fullscreen = 0;
     SDL_Event event;
@@ -60,7 +60,19 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                             board = initBoard(board->size, board->xDecal);
 
                             initGameWindows(renderer, board);
-                        } else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
+                        }else if((x >= 814) && (x <= 910) && (y >= 575) && (y <= 610)) {
+                            /*** EVENT Back to Home Menu **/
+                            continuer = 0;
+                            SDL_RenderClear(renderer);
+                            if(!initHome(pWindow,renderer,level,nbDame)){
+                                continuer=0;
+                            }
+                            board =initBoard(*nbDame,80);
+                            initGameWindows(renderer,board);
+                            eventDetector(pWindow, renderer, board, level,nbDame);
+
+
+                        }else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
                                    (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal &&
                                     (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal))) {
 
