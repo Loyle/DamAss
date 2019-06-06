@@ -6,8 +6,9 @@
 #include "cellStructure.h"
 #include "board.h"
 
-Board* initBoard(int size, int cellSize ,int decal) {
+Board* initBoard(int size,int decal) {
     Cell **cells = malloc(size * sizeof(Cell));
+    int cellSize = 640/size;
 
     for(int i = 0; i < size; i++) {
         cells[i] = malloc(size * sizeof(Cell));

@@ -41,7 +41,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                 if (event.key.keysym.sym == SDLK_r) {
                     SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
                     SDL_RenderClear(renderer);
-                    board = initBoard(board->size, board->cells[0][0].size, board->xDecal);
+                    board = initBoard(board->size, board->xDecal);
 
                     initGameWindows(renderer, board);
                 }
@@ -57,7 +57,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                             /*** EVENT Reset Window ***/
                             SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
                             SDL_RenderClear(renderer);
-                            board = initBoard(board->size, board->cells[0][0].size, board->xDecal);
+                            board = initBoard(board->size, board->xDecal);
 
                             initGameWindows(renderer, board);
                         } else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
@@ -70,7 +70,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                                                      board->cells[x][y].hasDame == 1)) {
 
                                 // On enlève la dame ou ajoute la dame
-                                setCellSprite(renderer,x, y, board);
+                                setCellSprite(renderer,x, y, board,1);
 
                                 // On recalcule l'effet des dames présentes
                                 // Uniquement si le niveau est à 0
@@ -82,12 +82,12 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                     if (*level <= 1) {
                                         checkDameConflict(board, x, y);
                                     }
-                                    setCellSprite(renderer,x, y, board);
+                                    setCellSprite(renderer,x, y, board,1);
                                     drawChessboard(renderer, board);
                                     if (*level <= 2) {
                                         drawHelp(renderer, x, y, board);
                                     }
-                                    setCellSprite(renderer,x, y, board);
+                                    setCellSprite(renderer,x, y, board,1);
                                 } else {
                                     drawChessboard(renderer, board);
                                 }
@@ -116,7 +116,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                 i = x;
                                 j = y;
 
-                                setCellSprite(renderer,x, y, board);
+                                setCellSprite(renderer,x, y, board,0);
                                 // Level 1 and under
                                 if (*level <= 1) {
                                     checkDameConflict(board, x, y);
@@ -126,7 +126,7 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                 if (*level <= 2) {
                                     drawHelp(renderer, x, y, board);
                                 }
-                                setCellSprite(renderer,x, y, board);
+                                setCellSprite(renderer,x, y, board,0);
                             } else {
                                 drawChessboard(renderer, board);
 

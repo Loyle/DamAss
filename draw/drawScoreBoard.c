@@ -16,6 +16,7 @@ void drawScoreBoard(SDL_Renderer *renderer, int rest) {
                            white.a);
     SDL_RenderFillRect(renderer, &pos);
 
+
     TTF_Init();
     TTF_Font *xlFont = TTF_OpenFont("./data/font/RobotoCondensedLight.ttf", 200);
 

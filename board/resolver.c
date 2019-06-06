@@ -11,7 +11,7 @@ void resolver(SDL_Renderer* renderer,Board *board) {
     while (start < 7 && conti == 0) {
         for (int x = start; x < board->size; x++) {
             for (int y = 0; y < board->size; y++) {
-                setCellSprite(renderer,x, y, board);
+                setCellSprite(renderer,x, y, board,1);
 
                 checkDameConflict(board, x, y);
                 int good = 1;
@@ -24,7 +24,7 @@ void resolver(SDL_Renderer* renderer,Board *board) {
                 }
 
                 if (good == 0) {
-                    setCellSprite(renderer,x, y, board);
+                    setCellSprite(renderer,x, y, board,1);
                 }
             }
         }

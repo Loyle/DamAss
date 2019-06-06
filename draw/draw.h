@@ -20,5 +20,7 @@ int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level, int* nbDame
 
 void setTextNbDame(SDL_Renderer* renderer, int* nbDame);
 
+void clearSelectedLevel(SDL_Renderer* renderer,int level);
+
 
 #endif //DAMASS_DRAW_H

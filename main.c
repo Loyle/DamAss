@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-    Board *board = initBoard(nbDame, 80, 80);
+    Board *board = initBoard(nbDame, 80);
     //resolver(board);
 
     initGameWindows(renderer,board);

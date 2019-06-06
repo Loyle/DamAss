@@ -36,23 +36,49 @@ int eventHomeDetector(SDL_Window* pWindow, SDL_Renderer *renderer, int* level,in
                 if (event.button.button == SDL_BUTTON_LEFT){
                     int x = event.button.x;
                     int y = event.button.y;
-                    printf("x :%i \n y:%i\n\n",x,y);
-                    /*** START ***/
 
+
+                    /*** START ***/
                     if ((x >= 315) && (x <= 716) && (y >= 600) && (y <= 762)){
                         continuer=0;
-                    }else if ((x >= 62) && (x <= 350) && (y >= 326) && (y <= 367)){
+
+                    }else if ((x >= 60) && (x <= 360) && (y >= 320) && (y <= 370)){
                         /*** DEBUTANT ***/
+                        clearSelectedLevel(renderer,*level);
                         *level = 0;
-                    }else if ((x >= 62) && (x <= 398) && (y >= 246) && (y <= 436)){
+                        SDL_Rect pos = {60,320,300,50};
+                        SDL_Color white = {255,255,255,255};
+                        SDL_SetRenderDrawColor(renderer, white.r, white.g, white.b,
+                                               white.a);
+                        SDL_RenderDrawRect(renderer,&pos);
+
+                    }else if ((x >= 60) && (x <= 260) && (y >= 393) && (y <= 433)){
                         /*** FACILE ***/
+                        clearSelectedLevel(renderer,*level);
                         *level = 1;
-                    }else if ((x >= 62) && (x <= 476) && (y >= 473) && (y <= 509)){
+                        SDL_Rect pos = {60,393,200,50};
+                        SDL_Color white = {255,255,255,255};
+                        SDL_SetRenderDrawColor(renderer, white.r, white.g, white.b,
+                                               white.a);
+                        SDL_RenderDrawRect(renderer,&pos);
+                    }else if ((x >= 60) && (x <= 480) && (y >= 465) && (y <= 515)){
                         /*** INTERMEDIAIRE ***/
+                        clearSelectedLevel(renderer,*level);
                         *level = 2;
-                    }else if ((x >= 62) && (x <= 548) && (y >= 272) && (y <= 588)){
+                        SDL_Rect pos = {60,465,425,50};
+                        SDL_Color white = {255,255,255,255};
+                        SDL_SetRenderDrawColor(renderer, white.r, white.g, white.b,
+                                               white.a);
+                        SDL_RenderDrawRect(renderer,&pos);
+                    }else if ((x >= 60) && (x <= 275) && (y >= 542) && (y <= 592)){
                         /*** EXPERT ***/
+                        clearSelectedLevel(renderer,*level);
                         *level = 3;
+                        SDL_Rect pos = {60,542,215,50};
+                        SDL_Color white = {255,255,255,255};
+                        SDL_SetRenderDrawColor(renderer, white.r, white.g, white.b,
+                                               white.a);
+                        SDL_RenderDrawRect(renderer,&pos);
                     }else if ((x >= 862) && (x <= 918) && (y >= 445) && (y <= 490)){
                         /*** PLUS ***/
                         *nbDame = *nbDame + 1;
@@ -66,8 +92,11 @@ int eventHomeDetector(SDL_Window* pWindow, SDL_Renderer *renderer, int* level,in
                         }
                         setTextNbDame(renderer,nbDame);
                     }
+                    SDL_RenderPresent(renderer);
+
                 }
         }
      }
+     return 1;
 }
 

@@ -17,11 +17,11 @@ struct Board {
     int yDecal;
 };
 
-Board *initBoard(int size, int cellSize, int decal);
+Board *initBoard(int size, int decal);
 void getPositionOnBoard(int *x , int *y, Board* board);
 void checkDameConflict(Board* board, int x , int y);
 void setConflictLine(Board* board ,int xCursor, int yCursor, int xEnd , int yEnd);
-void setCellSprite(SDL_Renderer* renderer,int x,int y,Board* board);
+void setCellSprite(SDL_Renderer* renderer,int x,int y,Board* board,int isDame);
 void setPreventSquareHelp(Board* board);
 void resolver(SDL_Renderer* renderer,Board *board);
 

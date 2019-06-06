@@ -8,14 +8,20 @@
 #include "../draw/draw.h"
 
 /*** INVERT HASDAME STATUS ***/
-void setCellSprite(SDL_Renderer* renderer,int x, int y, Board *board) {
+void setCellSprite(SDL_Renderer* renderer,int x, int y, Board *board,int isDame) {
     if(board->cells[x][y].hasDame == 0) {
         board->cells[x][y].hasDame = 1;
-        drawScoreBoard(renderer,board->nbDame--);
+        if(isDame == 1){
+            board->nbDame = board->nbDame - 1;
+            drawScoreBoard(renderer,board->nbDame);
+        }
     }
     else if(board->cells[x][y].hasDame == 1) {
         // otherwise, we delete the dame
         board->cells[x][y].hasDame = 0;
-        drawScoreBoard(renderer,board->nbDame++);
+        if(isDame == 1) {
+            board->nbDame = board->nbDame + 1;
+            drawScoreBoard(renderer, board->nbDame);
+        }
     }
 }
