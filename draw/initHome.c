@@ -26,5 +26,4 @@ int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level,int *nbDame)
     }
     setTextNbDame(renderer,nbDame);
     return eventHomeDetector(pWindow,renderer,level,nbDame);
-
 }

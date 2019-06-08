@@ -62,14 +62,14 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                             initGameWindows(renderer, board);
                         }else if((x >= 814) && (x <= 910) && (y >= 575) && (y <= 610)) {
                             /*** EVENT Back to Home Menu **/
-                            continuer = 0;
                             SDL_RenderClear(renderer);
                             if(!initHome(pWindow,renderer,level,nbDame)){
                                 continuer=0;
                             }
-                            board =initBoard(*nbDame,80);
-                            initGameWindows(renderer,board);
-                            eventDetector(pWindow, renderer, board, level,nbDame);
+                            else {
+                                board =initBoard(*nbDame,80);
+                                initGameWindows(renderer,board);
+                            }
 
 
                         }else if ((x >= 814) && (x <= 910) && (y >= 630) && (y <= 665)){
@@ -167,6 +167,9 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                         j = -1;
 
                         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
+                        // Reset conflict to draw clean board
+                        resetConflicts(board);
                         drawChessboard(renderer, board);
                     }
                 }

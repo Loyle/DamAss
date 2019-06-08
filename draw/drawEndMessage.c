@@ -14,26 +14,19 @@ void drawEndMessage(SDL_Renderer *renderer, Board* board){
 
     if (board->nbDame == 0){
         /** Si toutes les dames  sont posées **/
-        int x = 0, y=0, result=0;
-        for ( x = 0; x <board->size ; x++) {
-            for ( y = 0; y <board->size ; y++) {
-                checkDameConflict(board,x,y);
-                drawChessboard(renderer,board);
-
-            }
-        }
-        x=0;
-        y=0;
-        while(x<board->size&& result == 0){
-            while(y<board->size && result == 0){
-                if (board->cells[x][y].isConflict){
-                    result = 1;
+        int good = 1;
+        for (int x = 0; x < board->size ; x++) {
+            for (int y = 0; y <board->size ; y++) {
+                if(board->cells[x][y].hasDame) {
+                    checkDameConflict(board,x,y);
+                    if(board->cells[x][y].isConflict) {
+                        good = 0;
+                    }
                 }
-                y++;
             }
-            x++;
         }
-        if (result == 0){
+
+        if (good == 1){
             resultSurface = SDL_LoadBMP("./data/YOUWIN.bmp");
         }else{
             resultSurface = SDL_LoadBMP("./data/LOST.bmp");
