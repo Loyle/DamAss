@@ -4,15 +4,27 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <stdio.h>
+#include "../draw/draw.h"
 #include "../board/board.h"
 
 
 
 void drawEndMessage(SDL_Renderer *renderer, Board* board){
     SDL_Surface *resultSurface;
+
     if (board->nbDame == 0){
+        /** Si toutes les dames  sont posées **/
         int x = 0, y=0, result=0;
-        /*while(x<board->size&& result == 0){
+        for ( x = 0; x <board->size ; x++) {
+            for ( y = 0; y <board->size ; y++) {
+                checkDameConflict(board,x,y);
+                drawChessboard(renderer,board);
+
+            }
+        }
+        x=0;
+        y=0;
+        while(x<board->size&& result == 0){
             while(y<board->size && result == 0){
                 if (board->cells[x][y].isConflict){
                     result = 1;
@@ -20,13 +32,6 @@ void drawEndMessage(SDL_Renderer *renderer, Board* board){
                 y++;
             }
             x++;
-        }*/
-        for ( x = 0; x <board->size ; x++) {
-            for ( y = 0; y <board->size ; y++) {
-                if (board->cells[x][y].isConflict){
-                    result = 1;
-                }
-            }
         }
         if (result == 0){
             resultSurface = SDL_LoadBMP("./data/YOUWIN.bmp");
@@ -52,6 +57,7 @@ void drawEndMessage(SDL_Renderer *renderer, Board* board){
         }
 
     }else{
+        /** Sinon message erreur **/
         SDL_Rect pos = {750,300,200,25};
         SDL_Color white = {208,208,208,255};
         SDL_SetRenderDrawColor(renderer, white.r, white.g, white.b,
