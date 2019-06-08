@@ -24,7 +24,6 @@ void drawChessboard(SDL_Renderer *renderer, Board *board) {
                 SDL_RenderFillRect(renderer, &rect);
             } else {
                 // max help
-                //help
                 SDL_SetRenderDrawColor(renderer, colorArray[2].r, colorArray[2].g, colorArray[2].b,
                                        colorArray[2].a);
                 SDL_Rect rect = {board->cells[x][y].pixelX, board->cells[x][y].pixelY, board->cells[x][y].size,
@@ -62,6 +61,5 @@ void drawChessboard(SDL_Renderer *renderer, Board *board) {
             }
         }
     }
-
     SDL_RenderPresent(renderer);
 }

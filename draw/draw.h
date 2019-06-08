@@ -16,7 +16,7 @@ void drawChessboard(SDL_Renderer*,Board *board);
 void drawHelp(SDL_Renderer*,int x, int y, Board *board);
 void drawSquareHelp(SDL_Renderer*,int x, int y, Board *board);
 void drawScoreBoard(SDL_Renderer *renderer, int rest);
-void drawEndMessage(SDL_Renderer *renderer, Board* board);
+int drawEndMessage(SDL_Window*, SDL_Renderer *renderer, Board* board, int* level, int *nbDame);
 
 void initGameWindows(SDL_Renderer *, Board *board);
 int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level, int* nbDame);

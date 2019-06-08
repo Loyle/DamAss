@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
                                1000,
                                800,
                                SDL_WINDOW_SHOWN |
-                               SDL_SWSURFACE); // SDL_WINDOW_RESIZABLE pour pouvoir changer taille window
+                               SDL_SWSURFACE ); // SDL_WINDOW_RESIZABLE pour pouvoir changer taille window
     SDL_Renderer *renderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED);
 
     int level = 0;

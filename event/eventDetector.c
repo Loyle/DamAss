@@ -3,6 +3,7 @@
 //
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include <stdio.h>
 #include "eventDetector.h"
 #include "../draw/draw.h"
@@ -70,11 +71,56 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                                 board =initBoard(*nbDame,80);
                                 initGameWindows(renderer,board);
                             }
-
-
                         }else if ((x >= 814) && (x <= 910) && (y >= 630) && (y <= 665)){
                             /*** EVENT Check result  **/
-                            drawEndMessage(renderer,board);
+                            if(board->nbDame == 0){
+                                switch (drawEndMessage(pWindow,renderer,board,level,nbDame)){
+                                    case 0 :
+                                        continuer = 0;
+                                        break;
+                                    case 1 :
+                                        SDL_RenderClear(renderer);
+                                        if(!initHome(pWindow,renderer,level,nbDame)){
+                                            continuer=0;
+                                        }
+                                        else {
+                                            board =initBoard(*nbDame,80);
+                                            initGameWindows(renderer,board);
+                                        }
+                                        break;
+                                    case 2 :
+                                        SDL_SetRenderDrawColor(renderer, 208, 208, 208, 255);
+                                        SDL_RenderClear(renderer);
+                                        board = initBoard(board->size, board->xDecal);
+
+                                        initGameWindows(renderer, board);
+                                        break;
+                                }
+                            }else{
+                            /** Sinon message erreur **/
+                            SDL_Rect pos = {750,300,200,25};
+                            SDL_Color white = {208,208,208,255};
+                            SDL_SetRenderDrawColor(renderer, white.r, white.g, white.b,
+                                                   white.a);
+                            SDL_RenderFillRect(renderer, &pos);
+
+                            TTF_Init();
+                            TTF_Font *xlFont = TTF_OpenFont("./data/font/RobotoCondensedLight.ttf", 200);
+
+                            SDL_Color redPen = {255, 0, 0};
+                            char string[35]="";
+                            sprintf(string,"Dame(s) manquante(s) : %i",(board->nbDame));
+                            SDL_Surface *textSurface = TTF_RenderText_Solid(xlFont, string, redPen);
+
+                            SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+
+                            SDL_RenderCopy(renderer, text, NULL, &pos);
+
+                            TTF_CloseFont(xlFont);
+                            TTF_Quit();
+
+                        }
 
                         }else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
                                    (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal &&

@@ -9,7 +9,8 @@
 
 /*** INVERT HASDAME STATUS ***/
 void setCellSprite(SDL_Renderer* renderer,int x, int y, Board *board,int isDame) {
-    if(board->cells[x][y].hasDame == 0) {
+
+    if(board->cells[x][y].hasDame == 0 && board->nbDame > 0) {
         board->cells[x][y].hasDame = 1;
         if(isDame == 1){
             board->nbDame = board->nbDame - 1;
