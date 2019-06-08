@@ -11,12 +11,14 @@
 
 void drawResetButton(SDL_Renderer*);
 void drawMenuButton(SDL_Renderer* renderer);
+void drawCheckButton(SDL_Renderer* renderer);
 void drawChessboard(SDL_Renderer*,Board *board);
 void drawHelp(SDL_Renderer*,int x, int y, Board *board);
 void drawSquareHelp(SDL_Renderer*,int x, int y, Board *board);
-void initGameWindows(SDL_Renderer *, Board *board);
 void drawScoreBoard(SDL_Renderer *renderer, int rest);
+void drawEndMessage(SDL_Renderer *renderer, Board* board);
 
+void initGameWindows(SDL_Renderer *, Board *board);
 int initHome(SDL_Window *pWindow ,SDL_Renderer *renderer,int* level, int* nbDame);
 
 void setTextNbDame(SDL_Renderer* renderer, int* nbDame);

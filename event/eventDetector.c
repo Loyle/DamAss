@@ -72,6 +72,10 @@ void eventDetector(SDL_Window *pWindow, SDL_Renderer *renderer, Board *board, in
                             eventDetector(pWindow, renderer, board, level,nbDame);
 
 
+                        }else if ((x >= 814) && (x <= 910) && (y >= 630) && (y <= 665)){
+                            /*** EVENT Check result  **/
+                            drawEndMessage(renderer,board);
+
                         }else if ((event.motion.x >= board->yDecal) && (event.motion.y >= board->yDecal) &&
                                    (event.motion.x <= board->cells[0][0].size * board->size + board->xDecal &&
                                     (event.motion.y <= board->cells[0][0].size * board->size + board->yDecal))) {
